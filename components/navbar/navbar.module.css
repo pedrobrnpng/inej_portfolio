@@ -1,0 +1,25 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar h3 {
+  margin-left: 48px;
+}
+
+.navbarLinkContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.navbarLinkContainer ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbarLinkContainer li {
+  display: inline;
+  margin-right: 48px;
+}

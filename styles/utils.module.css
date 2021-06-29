@@ -64,10 +64,10 @@
   left: 0;
   top: 0;
   padding: 14rem 0 0 10rem;
+  line-height: 1.3;
 }
 
 .videoText {
-  font-family: Century Schoolbook, Century Schoolbook L, Georgia, serif;
   font-size: 20vmin;
   mix-blend-mode: difference;
   color: #FFF;
@@ -76,7 +76,6 @@
 }
 
 .videoText2 {
-  font-family: Century Schoolbook, Century Schoolbook L, Georgia, serif;
   font-size: 8vmin;
   mix-blend-mode: difference;
   color: #FFF;
@@ -144,3 +143,18 @@
     transform: translateY(-5px);
   }
 }
+
+.ParallaxVideo{ 
+	height: 100vh;
+}
+.ParallaxVideo video{ 
+  min-width: 100%;
+  position: fixed;
+	top:0;
+	z-index: -9999;
+}
+
+.ParallaxContent {
+  background: none repeat scroll 0 0 #0f0f0f;
+  color:#FFF;	
+} 
