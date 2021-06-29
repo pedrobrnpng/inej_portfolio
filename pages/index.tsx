@@ -1,5 +1,3 @@
-
-
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
@@ -8,6 +6,7 @@ import Link from 'next/link'
 import Date from '../components/date'
 import { GetStaticProps } from 'next'
 import Vimeo from '@u-wave/react-vimeo';
+import Navbar from '../components/navbar/navbar'
 
 export default function Home({
   allPostsData
@@ -24,31 +23,38 @@ export default function Home({
         <title>{siteTitle}</title>
       </Head>
 
-      <section>
-
-      </section>
-
       {/* background */}
       <section>
-        <video
-          className={`${utilStyles.video}`}
-          autoPlay
-          muted
-          loop
-          id='background'
-        >
-          <source src="/videos/background.mp4" type="video/mp4"/>
-        </video>
-        <div className={`${utilStyles.content} ${utilStyles.videoText}`}>
-          <h1 className={`${utilStyles.videoText}`}>INÊS PINHEIRO</h1>
-          <h6 className={`${utilStyles.videoText2}`}>Animation and Illustration</h6>
-        </div>
-        <div>
-          <a href="#projects" className={`${utilStyles.scrollDown}`} ></a>
+        <div className={`${utilStyles.ParallaxVideo}`}>
+          <video
+            className={`${utilStyles.video}`}
+            autoPlay
+            muted
+            loop
+            id='background'
+          >
+            <source src="/videos/background.mp4" type="video/mp4" />
+          </video>
+          <div className={`${utilStyles.content} ${utilStyles.videoText}`}>
+            <h1 className={`${utilStyles.videoText}`}>INÊS PINHEIRO</h1>
+            <h6 className={`${utilStyles.videoText2}`}>Animation and Illustration</h6>
+          </div>
+          <div>
+            <a href="#projects" className={`${utilStyles.scrollDown}`} ></a>
+          </div>
         </div>
       </section>
+
       <section id="#projects">
-        sup
+        <div className={`${utilStyles.ParallaxContent}`}>
+          {/* NAVBAR */}
+          <Navbar/>
+
+          {/* SHOWCASE */}
+          <div>
+
+          </div>
+        </div>
       </section>
 
 
