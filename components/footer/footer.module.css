@@ -1,0 +1,27 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2.65rem;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+}
+
+.icons a {
+  color: #fff;
+  padding-right: 1rem;
+}
+
+.footer h5 {
+  color: #454545;
+  padding: 0;
+  margin: 0;
+}
+
+.footerCopyright {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
