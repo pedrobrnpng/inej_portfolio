@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Date from '../components/date'
 import { GetStaticProps } from 'next'
 import Vimeo from '@u-wave/react-vimeo';
-import Navbar from '../components/navbar/navbar'
+import Navbar from '../components/navbar'
 
 export default function Home({
   allPostsData
