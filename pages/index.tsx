@@ -49,7 +49,7 @@ export default function Home({
         <div className={`${utilStyles.ParallaxContent}`}>
           {/* NAVBAR */}
           <Navbar/>
-
+          <Footer/>
           {/* SHOWCASE */}
           <div>
 
