@@ -13,16 +13,19 @@ export default function Home() {
 
       {/* background */}
       <section>
-        <div className={`${utilStyles.ParallaxVideo}`}>
-          <video
-            className={`${utilStyles.video}`}
-            autoPlay
-            muted
-            loop
-            id='background'
-          >
-            <source src="/videos/background.mp4" type="video/mp4" />
-          </video>
+        <div className={`${utilStyles.test}`}>
+          <div className={`${utilStyles.ParallaxVideo}`}>
+            
+            <video
+              className={`${utilStyles.video}`}
+              autoPlay
+              muted
+              loop
+              id='background'
+            >
+              <source src="/videos/background.mp4" type="video/mp4" />
+            </video>
+          </div>
           <div className={`${utilStyles.content} ${utilStyles.videoText}`}>
             <h1 className={`${utilStyles.videoText}`}>INÊS PINHEIRO</h1>
             <h6 className={`${utilStyles.videoText2}`}>Animation and Illustration</h6>
@@ -36,8 +39,9 @@ export default function Home() {
       <section id="#projects">
         <div className={`${utilStyles.ParallaxContent}`}>
           {/* NAVBAR */}
-          <Navbar/>
-          <Footer/>
+          <Navbar />
+
+          <Footer />
           {/* SHOWCASE */}
           <div>
 

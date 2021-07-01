@@ -1,6 +1,8 @@
 import Navbar from "../../components/navbar"
 import { getData } from '../../lib/aboutme'
 import { GetStaticProps } from 'next'
+import Head from 'next/head'
+import utilStyles from './aboutme.module.css'
 
 
 export default function AboutMe({
@@ -12,11 +14,17 @@ export default function AboutMe({
 }) {
   return (
     <div>
+    <Head>
+      <title>About Me</title>
+    </Head>
+    <div>
       <Navbar />
-      <div>
+      <div className={`${utilStyles.aboutContainer}`}>
         <h3>AbOuT mE</h3>
         <div dangerouslySetInnerHTML={{ __html: pageData.contentHtml }} />
       </div>
+    </div>
+    
     </div>
   )
 }
