@@ -2,9 +2,36 @@ import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 import Navbar from '../components/navbar'
+import Showcase from '../components/showcase'
 import Footer from '../components/footer'
+import Image from 'next/image'
+import { useEffect, useState } from 'react'
+import getWindowDimensions from '../utils/windowUtils'
+
 
 export default function Home() {
+
+  const [width, setWidth] = useState<number>();
+  const [height, setHeight] = useState<number>();
+
+  useEffect(() => {
+    const { width, height } = getWindowDimensions();
+    setWidth(width);
+    setHeight(height);
+  }, []);
+
+  useEffect(() => {
+    function handleResize() {
+      const { width, height } = getWindowDimensions();
+      setWidth(width);
+      setHeight(height);
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+
   return (
     <Layout home>
       <Head>
@@ -15,16 +42,26 @@ export default function Home() {
       <section>
         <div className={`${utilStyles.test}`}>
           <div className={`${utilStyles.ParallaxVideo}`}>
-            
-            <video
-              className={`${utilStyles.video}`}
-              autoPlay
-              muted
-              loop
-              id='background'
-            >
-              <source src="/videos/background.mp4" type="video/mp4" />
-            </video>
+            {width <= 1700 ?
+              <Image
+                className={`${utilStyles.test}`}
+                alt="Background"
+                src="/images/background_.jpg"
+                layout="fill"
+                objectFit="cover"
+                quality={100}
+              />
+              :
+              <video
+                className={`${utilStyles.video}`}
+                autoPlay
+                muted
+                loop
+                id='background'
+              >
+                <source src="/videos/background.mp4" type="video/mp4" />
+              </video>
+            }
           </div>
           <div className={`${utilStyles.content} ${utilStyles.videoText}`}>
             <h1 className={`${utilStyles.videoText}`}>INÊS PINHEIRO</h1>
@@ -41,39 +78,17 @@ export default function Home() {
           {/* NAVBAR */}
           <Navbar />
 
-          <Footer />
           {/* SHOWCASE */}
+            <Showcase/>
+
+
+          {/* FOOTER */}
+          <Footer />
           <div>
 
           </div>
         </div>
       </section>
-
-
-      {/* test */}
-      {/* <section className={utilStyles.headingMd}>
-        <p>[Your Self Introduction]</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this in{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-      </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
-        </ul>
-      </section> */}
     </Layout>
   )
 }
