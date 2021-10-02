@@ -7,9 +7,14 @@ import Footer from '../components/footer'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import getWindowDimensions from '../utils/windowUtils'
+import { Post } from '../types/post'
+import { getAllPosts } from '../lib/projects'
 
+type Props = {
+  allPosts: Post[]
+}
 
-export default function Home() {
+export default function Home({ allPosts }: Props) {
 
   const [width, setWidth] = useState<number>();
   const [height, setHeight] = useState<number>();
@@ -30,7 +35,6 @@ export default function Home() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
 
   return (
     <Layout home>
@@ -79,8 +83,7 @@ export default function Home() {
           <Navbar />
 
           {/* SHOWCASE */}
-            <Showcase/>
-
+          <Showcase allPosts={allPosts} />
 
           {/* FOOTER */}
           <Footer />
@@ -91,4 +94,22 @@ export default function Home() {
       </section>
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+
+  const allPosts = await getAllPosts([
+    'project',
+    'title',
+    'date',
+    'img',
+    'content'
+  ])
+  const posts = await Promise.all(allPosts)
+
+  return {
+    props: {
+      allPosts: posts as Post[]
+    }
+  }
 }
