@@ -1,3 +1,34 @@
 .aboutContainer{
-  margin: auto 20rem;
+  margin: auto 600px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  height: 800px;
+  align-items: center;
+}
+
+.imageContainer {
+  justify-content: flex-start;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+.textContainer {
+  justify-content: flex-end;
+  width: 60%;
+  padding-left: 60px;
+}
+
+.icons {
+  display: flex;
+  justify-content: start;
+}
+
+.icons a {
+  color: #000;
+  padding-right: 1rem;
 }
