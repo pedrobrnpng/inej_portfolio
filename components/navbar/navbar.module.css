@@ -1,19 +1,33 @@
 .navbar {
+  width: 100%;
+  position: relative;
   display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
   justify-content: space-between;
   height: 150px;
-  align-items: center;
+  max-width: 2000px;
+  padding: 0px 24px;
+  margin: 0px auto;
 }
 
 .navbar h3 {
-  margin-left: 48px;
   color: #a091ff;
+  font-size: 30px;
 }
 
 .navbarLinkContainer {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+.navbarLinkContainer a {
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 23px;
 }
 
 .navbarLinkContainer ul {
@@ -24,5 +38,5 @@
 
 .navbarLinkContainer li {
   display: inline;
-  margin-right: 48px;
+  margin-left: 48px;
 }
