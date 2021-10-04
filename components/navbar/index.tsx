@@ -12,8 +12,12 @@ export default function Navbar() {
       </div>
       <div className={`${utilStyles.navbarLinkContainer}`}>
         <ul>
-          <li>Animation</li>
-          <li>Portfolio</li>
+          <li>
+            <Link href="">Animation</Link>
+            </li>
+          <li>
+            <Link href="">Portfolio</Link>
+            </li>
           <li>
             <Link href="/about/me">About</Link>
           </li>
