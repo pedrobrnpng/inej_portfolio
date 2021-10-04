@@ -1,7 +1,35 @@
 import utilStyles from './navbar.module.css';
 import Link from 'next/link'
+import { useEffect, useState } from 'react';
+import getWindowDimensions from '../../utils/windowUtils';
 
 export default function Navbar() {
+
+  const [width, setWidth] = useState<number>();
+  const [height, setHeight] = useState<number>();
+  const [active, setActive] = useState(false);
+
+  const handleClick = () => {
+    setActive(!active);
+    console.log("pirocada")
+  }
+
+  useEffect(() => {
+    const { width, height } = getWindowDimensions();
+    setWidth(width);
+    setHeight(height);
+  }, []);
+
+  useEffect(() => {
+    function handleResize() {
+      const { width, height } = getWindowDimensions();
+      setWidth(width);
+      setHeight(height);
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div className={`${utilStyles.navbar}`}>
@@ -10,19 +38,28 @@ export default function Navbar() {
           <h3>INÊS PINHEIRO</h3>
         </Link>
       </div>
-      <div className={`${utilStyles.navbarLinkContainer}`}>
-        <ul>
-          <li>
-            <Link href="">Animation</Link>
+      {width > 1150 ?
+        <div className={`${utilStyles.navbarLinkContainer}`}>
+          <ul>
+            <li>
+              <Link href="">Animation</Link>
             </li>
-          <li>
-            <Link href="">Portfolio</Link>
+            <li>
+              <Link href="">Portfolio</Link>
             </li>
-          <li>
-            <Link href="/about/me">About</Link>
-          </li>
-        </ul>
-      </div>
+            <li>
+              <Link href="/about/me">About</Link>
+            </li>
+          </ul>
+        </div>
+        :
+        <div
+          className={`${utilStyles.menu} ${utilStyles.navbarMenu}}`}
+          onClick={handleClick}
+        >
+          <div></div>
+        </div>
+      }
     </div>
   )
 }
