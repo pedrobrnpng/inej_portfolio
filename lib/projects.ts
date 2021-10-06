@@ -80,7 +80,7 @@ export async function getPostByName(id: string, fields: string[] = []) {
       items[field] = colaborators;
     }    
   })
-
+  
   // Combine the data with the id and contentHtml
   return items;
 }

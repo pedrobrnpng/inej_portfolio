@@ -1,11 +1,11 @@
 ---
-title: "Lobster"
+title: "Carnival of Dreams"
 type: "Animation"
 colaborators: "Alexandra Ribeiro; Beatriz Carneiro"
 sound: "Kate Mercer"
 date: "2020-01-01"
-img: "https://static.wixstatic.com/media/de5a7f_173dd27c56fa4788952dfbbbb2a34963~mv2.gif"
-videoUrl: "https://vimeo.com/383993718"
+img: "https://static.wixstatic.com/media/de5a7f_64880b3985b445f29071d3a405004648~mv2.gif"
+videoUrl: "https://vimeo.com/552618425"
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 

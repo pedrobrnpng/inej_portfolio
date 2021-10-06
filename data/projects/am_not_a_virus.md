@@ -1,11 +1,11 @@
 ---
-title: "Lobster"
+title: "I Am Not A Virus"
 type: "Animation"
-colaborators: "Alexandra Ribeiro; Beatriz Carneiro"
+colaborators: "Adam Quinn; Alexandra Martinho; Isabelle Farrant; Kate Mercer"
 sound: "Kate Mercer"
 date: "2020-01-01"
-img: "https://static.wixstatic.com/media/de5a7f_173dd27c56fa4788952dfbbbb2a34963~mv2.gif"
-videoUrl: "https://vimeo.com/383993718"
+img: "https://static.wixstatic.com/media/de5a7f_a90e7b7bf55543ef9ee6948a25940a5b~mv2.gif"
+videoUrl: "https://vimeo.com/552622100"
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 

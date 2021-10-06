@@ -101,15 +101,19 @@ export async function getStaticProps() {
   const allPosts = await getAllPosts([
     'project',
     'title',
-    'date',
     'img',
-    'content'
+    'content',
+    'sound',
+    'colaborators',
+    'videoUrl'
   ])
-  const posts = await Promise.all(allPosts)
+
+
+  const posts = await Promise.all(allPosts);
 
   return {
     props: {
-      allPosts: posts as Post[]
+      allPosts: posts as unknown as Post[]
     }
   }
 }
