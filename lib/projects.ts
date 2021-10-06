@@ -37,18 +37,48 @@ export async function getPostByName(id: string, fields: string[] = []) {
   const items: Items = {};
 
   fields.forEach((field) => {
+
     if (field === 'project') {
       items[field] = name
     }
+
     if (field === 'title') {
       items[field] = data.title
     }
+
     if (field === 'content') {
       items[field] = content
     }
+
     if (field === 'img') {
       items[field] = data.img
     }
+
+    if (field === 'videoUrl') {
+      items[field] = data.videoUrl
+    }
+
+    if (field === 'sound') {
+      var sound: any;
+
+      if (data.sound)
+        sound = data.sound.split(";")
+      else
+        sound = [];
+
+      items[field] = sound;
+    }
+
+    if (field === 'colaborators') {
+      var colaborators: any;
+
+      if (data.colaborators) 
+        colaborators = data.colaborators.split(";")
+      else
+        colaborators = []
+
+      items[field] = colaborators;
+    }    
   })
 
   // Combine the data with the id and contentHtml
