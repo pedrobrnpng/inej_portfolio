@@ -80,7 +80,7 @@ export default function Home({ allPosts }: Props) {
       <section id="#projects">
         <div className={`${utilStyles.ParallaxContent}`}>
           {/* NAVBAR */}
-          <Navbar />
+          <Navbar dark={true} />
 
           {/* SHOWCASE */}
           <Showcase allPosts={allPosts} />

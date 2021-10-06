@@ -19,7 +19,7 @@ const Post = ({ post }) => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar dark={false} />
       <div className={`${utilStyles.container}`}>
         <div className={`${utilStyles.row}`}>
           <div className={`${utilStyles.title}`}>

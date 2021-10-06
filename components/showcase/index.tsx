@@ -1,5 +1,4 @@
 import utilStyles from './showcase.module.css'
-import Image from 'next/image'
 import { Post } from '../../types/post'
 import ProjectCard from './card'
 

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react';
 import getWindowDimensions from '../../utils/windowUtils';
 
-export default function Navbar() {
+export default function Navbar({ dark }) {
 
   const [width, setWidth] = useState<number>();
   const [height, setHeight] = useState<number>();
@@ -11,7 +11,6 @@ export default function Navbar() {
 
   const handleClick = () => {
     setActive(!active);
-    console.log("pirocada")
   }
 
   useEffect(() => {
@@ -39,7 +38,7 @@ export default function Navbar() {
         </Link>
       </div>
       {width > 1150 ?
-        <div className={`${utilStyles.navbarLinkContainer}`}>
+        <div className={`${utilStyles.navbarLinkContainer} ${dark ? utilStyles.white : utilStyles.dark}`}>
           <ul>
             <li>
               <Link href="">Animation</Link>
@@ -54,7 +53,7 @@ export default function Navbar() {
         </div>
         :
         <div
-          className={`${utilStyles.menu} ${utilStyles.navbarMenu}}`}
+          className={`${dark ? utilStyles.menuDark : utilStyles.menuWhite} ${utilStyles.navbarMenu} `}
           onClick={handleClick}
         >
           <div></div>

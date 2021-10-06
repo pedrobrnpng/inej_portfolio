@@ -24,10 +24,17 @@
 }
 
 .navbarLinkContainer a {
-  color: #000;
   cursor: pointer;
   text-decoration: none;
   font-size: 23px;
+}
+
+.white a {
+  color: #fff;
+}
+
+.dark a {
+  color: #000;
 }
 
 .navbarLinkContainer ul {
@@ -54,9 +61,9 @@
   justify-content: flex-end;
 }
 
-.menu:before,
-.menu:after,
-.menu div {
+.menuDark:before,
+.menuDark:after,
+.menuDark div {
   background: #000;
   content: "";
   display: block;
@@ -66,13 +73,35 @@
   transition: 0.5s;
 }
 
-.menu:hover:before {
+.menuDark:hover:before {
   transform: translateY(12px) rotate(135deg);
 }
-.menu:hover:after {
+.menuDark:hover:after {
   transform: translateY(-12px) rotate(-135deg);
 }
-.menu:hover div {
+.menuDark:hover div {
+  transform: scale(0);
+}
+
+.menuWhite:before,
+.menuWhite:after,
+.menuWhite div {
+  background: #000;
+  content: "";
+  display: block;
+  height: 6px;
+  border-radius: 3px;
+  margin: 7px 0;
+  transition: 0.5s;
+}
+
+.menuWhite:hover:before {
+  transform: translateY(12px) rotate(135deg);
+}
+.menuWhite:hover:after {
+  transform: translateY(-12px) rotate(-135deg);
+}
+.menuWhite:hover div {
   transform: scale(0);
 }
 
