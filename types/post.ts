@@ -4,4 +4,6 @@ export type Post = {
   date: string
   img: string
   content: string
+  sound: string[]
+  colaborators: string[]
 }
