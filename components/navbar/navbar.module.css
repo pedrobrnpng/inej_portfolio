@@ -104,7 +104,3 @@
 .menuWhite:hover div {
   transform: scale(0);
 }
-
-@media only screen and (max-width: 1150px) {
-
-}

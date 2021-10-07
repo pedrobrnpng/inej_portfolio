@@ -44,7 +44,7 @@ export default function Navbar({ dark }) {
               <Link href="">Animation</Link>
             </li>
             <li>
-              <Link href="">Portfolio</Link>
+              <Link href="/portfolio">Portfolio</Link>
             </li>
             <li>
               <Link href="/about/me">About</Link>
