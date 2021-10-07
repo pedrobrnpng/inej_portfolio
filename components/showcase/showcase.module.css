@@ -19,14 +19,14 @@
 .my_masonry_grid_column {
   padding-left: 30px; /* gutter size */
   background-clip: padding-box;
-  justify-content: center;
-  display: flex;
 }
 
 /* Style your items */
 .my_masonry_grid_column > div { /* change div to reference your elements you put in <Masonry> */
   background: #0f0f0f;
   margin-bottom: 30px;
+  justify-content: center;
+  display: flex;
 }
 
 @media only screen and (max-width: 1700px) {
