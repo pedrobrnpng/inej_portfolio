@@ -8,6 +8,8 @@ import { GetStaticPaths } from 'next';
 import Navbar from '../../components/navbar';
 import Footer from '../../components/footer'
 import Vimeo from '@u-wave/react-vimeo'
+import Image from 'next/image'
+
 
 
 const Post = ({ post }) => {
@@ -24,7 +26,7 @@ const Post = ({ post }) => {
         <div className={`${utilStyles.row}`}>
           <div className={`${utilStyles.title}`}>
             <h3>{post.title}</h3>
-            <h5>Animation</h5>
+            <h5>{post.type}</h5>
           </div>
           <div className={`${utilStyles.aboutProject}`}>
 
@@ -80,13 +82,19 @@ const Post = ({ post }) => {
             </div>
           </div>
         </div>
+        {post.videoUrl ?
+          <div className={`${utilStyles.vimeoContainer}`}>
+            <Vimeo
+              video={post.videoUrl}
+              responsive={true}
+            />
+          </div>
+          :
+          <div>
+            <Image width={500} height={800} src={`${post.img}`} />
+          </div>
+        }
 
-        <div className={`${utilStyles.vimeoContainer}`}>
-          <Vimeo
-            video={post.videoUrl}
-            responsive={true}
-          />
-        </div>
 
       </div>
       <Footer />
@@ -106,7 +114,8 @@ export async function getStaticProps({ params }) {
     'project',
     'sound',
     'colaborators',
-    'videoUrl'
+    'videoUrl',
+    'type'
   ]);
 
   const content = await markdownToHtml(post.content || '')
