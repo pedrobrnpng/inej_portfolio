@@ -18,10 +18,20 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 img {
   max-width: 100%;
   display: block;
+}
+
+h5 {
+  font-weight: 300;
+}
+
+.centerPage {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0px auto;
 }
