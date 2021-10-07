@@ -39,8 +39,6 @@ export default function Portfolio({ allPosts }: Props) {
   const uniqueTypes = allPosts.map((post) => post.type.trim())
     .filter((value, index, self) => self.indexOf(value) === index)
 
-
-
   const breakpoints = {
     default: 3,
     1100: 2,

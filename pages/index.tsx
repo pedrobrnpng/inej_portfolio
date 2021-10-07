@@ -83,7 +83,9 @@ export default function Home({ allPosts }: Props) {
           <Navbar dark={true} />
 
           {/* SHOWCASE */}
-          <Showcase allPosts={allPosts} />
+          <div className="centerPage">
+            <Showcase allPosts={allPosts} />
+          </div>
 
           {/* FOOTER */}
           <Footer />

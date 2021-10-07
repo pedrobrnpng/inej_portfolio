@@ -1,15 +1,26 @@
 import utilStyles from './showcase.module.css'
 import { Post } from '../../types/post'
 import ProjectCard from '../shared-components/card'
+import Masonry from 'react-masonry-css'
 
 type Props = {
   allPosts: Post[]
 }
 
+const breakpoints = {
+  default: 3,
+  1100: 2,
+  700: 1
+}
+
 export default function Showcase({ allPosts }: Props) {
 
   return (
-    <div className={`${utilStyles.gallery}`}>
+    <Masonry
+      breakpointCols={breakpoints}
+      className={`${utilStyles.my_masonry_grid}`}
+      columnClassName={`${utilStyles.my_masonry_grid_column}`}
+    >
       {allPosts.map((post) => (
         <ProjectCard
           title={post.title}
@@ -17,6 +28,6 @@ export default function Showcase({ allPosts }: Props) {
           img={post.img}
         />
       ))}
-    </div>
+    </Masonry>
   )
 }
