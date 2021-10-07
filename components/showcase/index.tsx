@@ -1,6 +1,6 @@
 import utilStyles from './showcase.module.css'
 import { Post } from '../../types/post'
-import ProjectCard from './card'
+import ProjectCard from '../shared-components/card'
 
 type Props = {
   allPosts: Post[]

@@ -58,6 +58,10 @@ export async function getPostByName(id: string, fields: string[] = []) {
       items[field] = data.videoUrl
     }
 
+    if (field === 'type') {
+      items[field] = data.type
+    }
+
     if (field === 'sound') {
       var sound: any;
 

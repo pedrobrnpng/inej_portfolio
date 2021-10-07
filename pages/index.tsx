@@ -46,7 +46,7 @@ export default function Home({ allPosts }: Props) {
       <section>
         <div className={`${utilStyles.test}`}>
           <div className={`${utilStyles.ParallaxVideo}`}>
-            {width <= 1700 ?
+            {width <= 1150 ?
               <Image
                 className={`${utilStyles.test}`}
                 alt="Background"
@@ -101,11 +101,7 @@ export async function getStaticProps() {
   const allPosts = await getAllPosts([
     'project',
     'title',
-    'img',
-    'content',
-    'sound',
-    'colaborators',
-    'videoUrl'
+    'img'
   ])
 
 
