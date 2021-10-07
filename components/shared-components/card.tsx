@@ -13,7 +13,7 @@ export default function ProjectCard({
 }: Props) {
 
   return (
-    <div className={`${utilStyles.project}`}>
+    <div>
       <Link as={`/projects/${project}`} href={`/projects/[project]`}>
         <div className="card-img">
           <img
