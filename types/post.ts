@@ -6,4 +6,5 @@ export type Post = {
   sound: string[]
   colaborators: string[]
   videoUrl: string
+  type: string
 }
