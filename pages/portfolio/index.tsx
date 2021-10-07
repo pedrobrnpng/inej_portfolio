@@ -49,7 +49,7 @@ export default function Portfolio({ allPosts }: Props) {
   return (
     <Layout home>
       <Head>
-        <title>{siteTitle}</title>
+        <title>Portfolio | {siteTitle}</title>
       </Head>
 
       <Navbar dark={true} />
