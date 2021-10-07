@@ -2,13 +2,14 @@ import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 import Navbar from '../components/navbar'
-import Showcase from '../components/showcase'
+import Showcase from '../components/shared-components/gallery'
 import Footer from '../components/footer'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import getWindowDimensions from '../utils/windowUtils'
 import { Post } from '../types/post'
 import { getAllPosts } from '../lib/projects'
+import Gallery from '../components/shared-components/gallery'
 
 type Props = {
   allPosts: Post[]
@@ -84,7 +85,7 @@ export default function Home({ allPosts }: Props) {
 
           {/* SHOWCASE */}
           <div className="centerPage">
-            <Showcase allPosts={allPosts} />
+            <Gallery allPosts={allPosts} />
           </div>
 
           {/* FOOTER */}

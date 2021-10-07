@@ -4,6 +4,7 @@ import utilStyles from './portfolio.module.css'
 import Navbar from '../../components/navbar'
 import Footer from '../../components/footer'
 import Masonry from 'react-masonry-css'
+import Gallery from '../../components/shared-components/gallery'
 import ProjectCard from '../../components/shared-components/card'
 import { useEffect, useState } from 'react'
 import getWindowDimensions from '../../utils/windowUtils'
@@ -60,7 +61,10 @@ export default function Portfolio({ allPosts }: Props) {
               <div>
                 <h5>{type}</h5>
               </div>
-              <Masonry
+              <Gallery
+                allPosts={allPosts.filter(post => post.type === type)}
+              />
+              {/* <Masonry
                 breakpointCols={breakpoints}
                 className={`${utilStyles.my_masonry_grid}`}
                 columnClassName={`${utilStyles.my_masonry_grid_column}`}
@@ -75,7 +79,7 @@ export default function Portfolio({ allPosts }: Props) {
                       />
                     </div>
                   ))}
-              </Masonry>
+              </Masonry> */}
             </section>
           )
         })

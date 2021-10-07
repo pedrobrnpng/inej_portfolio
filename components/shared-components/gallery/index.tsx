@@ -1,6 +1,6 @@
 import utilStyles from './showcase.module.css'
-import { Post } from '../../types/post'
-import ProjectCard from '../shared-components/card'
+import { Post } from '../../../types/post'
+import ProjectCard from '../card'
 import Masonry from 'react-masonry-css'
 
 type Props = {
@@ -13,7 +13,7 @@ const breakpoints = {
   700: 1
 }
 
-export default function Showcase({ allPosts }: Props) {
+export default function Gallery({ allPosts }: Props) {
 
   return (
     <Masonry
