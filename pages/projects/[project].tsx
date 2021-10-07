@@ -76,8 +76,10 @@ const Post = ({ post }) => {
             />
           </div>
           :
-          <div>
-            <Image width={500} height={800} src={`${post.img}`} />
+          <div className={`${utilStyles.imageContainer}`}>
+            <img
+              src={`${post.img}`}
+            />
           </div>
         }
 
