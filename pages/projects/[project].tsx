@@ -1,5 +1,7 @@
 import ErrorPage from 'next/error'
 import { useRouter } from 'next/dist/client/router';
+import Layout, { siteTitle } from '../../components/layout';
+import Head from 'next/head';
 import { getAllPosts, getPostByName } from '../../lib/projects'
 import utilStyles from "./project.module.css"
 
@@ -20,73 +22,79 @@ const Post = ({ post }) => {
   }
 
   return (
-    <div>
-      <Navbar dark={false} />
-      <div className={`${utilStyles.container}`}>
-        <div className={`${utilStyles.row}`}>
-          <div className={`${utilStyles.title}`}>
-            <h3>{post.title}</h3>
-            <h5>{post.type}</h5>
+    <Layout>
+      <Head>
+        <title> {post.title} | {siteTitle}</title>
+      </Head>
+
+      <div>
+        <Navbar dark={false} />
+        <div className={`${utilStyles.container}`}>
+          <div className={`${utilStyles.row}`}>
+            <div className={`${utilStyles.title}`}>
+              <h3>{post.title}</h3>
+              <h5>{post.type}</h5>
+            </div>
+            <div className={`${utilStyles.aboutProject}`}>
+
+              <div>
+                <h5>School Project</h5>
+              </div>
+              <div>
+                <p>
+                  <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                </p>
+              </div>
+
+              <div className={`${utilStyles.metaRow}`}>
+                {post.colaborators.length > 0 ?
+                  <div className={`${utilStyles.colaborators}`}>
+                    <h5>In colaboration with</h5>
+                    {post.colaborators.map((name) => {
+                      return (
+                        <p>{name.trim()}</p>
+                      )
+                    })}
+                  </div>
+                  :
+                  <div></div>
+                }
+
+                {post.sound.length > 0 ?
+                  <div className={`${utilStyles.sound}`}>
+                    <h5>Sound by</h5>
+                    {post.sound.map((name) => {
+                      return (
+                        <p>{name.trim()}</p>
+                      )
+                    })}
+                  </div>
+                  :
+                  <div></div>
+                }
+              </div>
+            </div>
           </div>
-          <div className={`${utilStyles.aboutProject}`}>
-
-            <div>
-              <h5>School Project</h5>
+          {post.videoUrl ?
+            <div className={`${utilStyles.vimeoContainer}`}>
+              <Vimeo
+                video={post.videoUrl}
+                responsive={true}
+              />
             </div>
-            <div>
-              <p>
-                <div dangerouslySetInnerHTML={{ __html: post.content }} />
-              </p>
+            :
+            <div className={`${utilStyles.imageContainer}`}>
+              <img
+                src={`${post.img}`}
+              />
             </div>
+          }
 
-            <div className={`${utilStyles.metaRow}`}>
-              {post.colaborators.length > 0 ?
-                <div className={`${utilStyles.colaborators}`}>
-                  <h5>In colaboration with</h5>
-                  {post.colaborators.map((name) => {
-                    return (
-                      <p>{name.trim()}</p>
-                    )
-                  })}
-                </div>
-                :
-                <div></div>
-              }
 
-              {post.sound.length > 0 ?
-                <div className={`${utilStyles.sound}`}>
-                  <h5>Sound by</h5>
-                  {post.sound.map((name) => {
-                    return (
-                      <p>{name.trim()}</p>
-                    )
-                  })}
-                </div>
-                :
-                <div></div>
-              }
-            </div>
-          </div>
         </div>
-        {post.videoUrl ?
-          <div className={`${utilStyles.vimeoContainer}`}>
-            <Vimeo
-              video={post.videoUrl}
-              responsive={true}
-            />
-          </div>
-          :
-          <div className={`${utilStyles.imageContainer}`}>
-            <img
-              src={`${post.img}`}
-            />
-          </div>
-        }
-
-
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </Layout>
   )
 }
 

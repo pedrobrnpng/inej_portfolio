@@ -57,15 +57,23 @@ export default function Home({ allPosts }: Props) {
                 quality={100}
               />
               :
-              <video
-                className={`${utilStyles.video}`}
-                autoPlay
-                muted
-                loop
-                id='background'
-              >
-                <source src="/videos/background.mp4" type="video/mp4" />
-              </video>
+              <Image
+                className={`${utilStyles.test}`}
+                src="/images/background2.gif"
+                alt="Background"
+                layout="fill"
+                objectFit="cover"
+                quality={100}
+              />
+              // <video
+              //   className={`${utilStyles.video}`}
+              //   autoPlay
+              //   muted
+              //   loop
+              //   id='background'
+              // >
+              //   <source src="/videos/background.mp4" type="video/mp4" />
+              // </video>
             }
           </div>
           <div className={`${utilStyles.content} ${utilStyles.videoText}`}>
