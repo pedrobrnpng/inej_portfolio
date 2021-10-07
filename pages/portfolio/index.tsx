@@ -64,22 +64,6 @@ export default function Portfolio({ allPosts }: Props) {
               <Gallery
                 allPosts={allPosts.filter(post => post.type === type)}
               />
-              {/* <Masonry
-                breakpointCols={breakpoints}
-                className={`${utilStyles.my_masonry_grid}`}
-                columnClassName={`${utilStyles.my_masonry_grid_column}`}
-              >
-                {allPosts.filter(post => post.type === type)
-                  .map(post => (
-                    <div key={post.title}>
-                      <ProjectCard
-                        title={post.title}
-                        project={post.project}
-                        img={post.img}
-                      />
-                    </div>
-                  ))}
-              </Masonry> */}
             </section>
           )
         })
