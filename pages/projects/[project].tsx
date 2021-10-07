@@ -38,7 +38,7 @@ const Post = ({ post }) => {
             <div className={`${utilStyles.aboutProject}`}>
 
               <div>
-                <h5>School Project</h5>
+                <h5>School Project my duck</h5>
               </div>
               <div>
                 <p>
