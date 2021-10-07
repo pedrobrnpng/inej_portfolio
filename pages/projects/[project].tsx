@@ -48,13 +48,6 @@ const Post = ({ post }) => {
                       <p>{name.trim()}</p>
                     )
                   })}
-                  {/* <ul>
-                    {post.colaborators.map((name) => {
-                      return (
-                        <li>{name.trim()}</li>
-                      )
-                    })}
-                  </ul> */}
                 </div>
                 :
                 <div></div>
@@ -68,13 +61,6 @@ const Post = ({ post }) => {
                       <p>{name.trim()}</p>
                     )
                   })}
-                  {/* <ul>
-                    {post.sound.map((name) => {
-                      return (
-                        <li>{name.trim()}</li>
-                      )
-                    })}
-                  </ul> */}
                 </div>
                 :
                 <div></div>
@@ -102,7 +88,7 @@ const Post = ({ post }) => {
   )
 }
 
-export default Post
+export default Post;
 
 
 export async function getStaticProps({ params }) {
