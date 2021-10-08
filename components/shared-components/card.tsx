@@ -9,7 +9,8 @@ type Props = {
 
 export default function ProjectCard({
   project,
-  img
+  img,
+  title
 }: Props) {
 
   return (
@@ -18,7 +19,8 @@ export default function ProjectCard({
         <div className="card-img">
           <img
             src={img}
-            alt="Cat"
+            alt={title}
+            title={title}
           />
         </div>
       </Link>
