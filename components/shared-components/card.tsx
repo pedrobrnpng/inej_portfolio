@@ -1,4 +1,4 @@
-import utilStyles from './showcase.module.css'
+import utilStyles from './styles.module.css'
 import Link from 'next/link'
 
 type Props = {
@@ -14,14 +14,23 @@ export default function ProjectCard({
 }: Props) {
 
   return (
-    <div>
+    <div className={`${utilStyles.card}`}>
       <Link as={`/projects/${project}`} href={`/projects/[project]`}>
-        <div className="card-img">
-          <img
-            src={img}
-            alt={title}
-            title={title}
-          />
+        <div className={`${utilStyles.container}`}>
+          <div className={`${utilStyles.imageDiv}`}>
+            <img
+              className={`${utilStyles.image}`}
+              src={img}
+              alt={title}
+              title={title}
+            />
+          </div>
+
+          <div className={`${utilStyles.overlay}`}>
+            <div className={`${utilStyles.text}`}>
+              {title}
+            </div>
+          </div>
         </div>
       </Link>
     </div>
