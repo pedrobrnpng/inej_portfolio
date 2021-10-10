@@ -52,25 +52,29 @@ export default function Portfolio({ allPosts }: Props) {
         <title>Portfolio | {siteTitle}</title>
       </Head>
 
-      <Navbar dark={true} />
+      <div className="darkPage">
 
-      <section className="centerPage">
-        {uniqueTypes.map(type => {
-          return (
-            <section>
-              <div>
-                <h5>{type}</h5>
-              </div>
-              <Gallery
-                allPosts={allPosts.filter(post => post.type === type)}
-              />
-            </section>
-          )
-        })
-        }
-      </section>
+        <Navbar dark={true} />
 
-      <Footer />
+        <section className="centerPage">
+          {uniqueTypes.map(type => {
+            return (
+              <section>
+                <div>
+                  <h5>{type}</h5>
+                </div>
+                <Gallery
+                  allPosts={allPosts.filter(post => post.type === type)}
+                />
+              </section>
+            )
+          })
+          }
+        </section>
+
+        <Footer />
+
+      </div>
 
     </Layout>
   )

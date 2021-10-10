@@ -1,5 +1,5 @@
 ---
-title: "Lightouse"
+title: "Lighthouse"
 type: "Drawing"
 colaborators: ""
 sound: ""

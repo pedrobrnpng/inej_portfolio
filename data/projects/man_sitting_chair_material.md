@@ -1,5 +1,5 @@
 ---
-title: "Man sitting in a chair with is material"
+title: "Man sitting in a chair with his material"
 type: "Observational Drawing"
 colaborators: ""
 sound: ""
