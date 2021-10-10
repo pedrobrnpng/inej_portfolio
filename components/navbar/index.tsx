@@ -41,7 +41,7 @@ export default function Navbar({ dark }) {
         <div className={`${utilStyles.navbarLinkContainer} ${dark ? utilStyles.white : utilStyles.dark}`}>
           <ul>
             <li>
-              <Link href="">Animation</Link>
+              <Link href="/animation">Animation</Link>
             </li>
             <li>
               <Link href="/portfolio">Portfolio</Link>

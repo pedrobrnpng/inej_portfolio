@@ -3,7 +3,7 @@ import Layout, { siteTitle } from '../../components/layout'
 import Navbar from '../../components/navbar'
 import Footer from '../../components/footer'
 import Gallery from '../../components/shared-components/gallery'
-import utilStyles from './portfolio.module.css'
+import utilStyles from './animation.module.css'
 import { useEffect, useState } from 'react'
 import getWindowDimensions from '../../utils/windowUtils'
 import { Post } from '../../types/post'
@@ -13,7 +13,7 @@ type Props = {
   allPosts: Post[]
 }
 
-export default function Portfolio({ allPosts }: Props) {
+export default function Animation({ allPosts }: Props) {
 
   const [width, setWidth] = useState<number>();
   const [height, setHeight] = useState<number>();
@@ -41,7 +41,7 @@ export default function Portfolio({ allPosts }: Props) {
   return (
     <Layout home>
       <Head>
-        <title>Portfolio | {siteTitle}</title>
+        <title>Animation | {siteTitle}</title>
       </Head>
 
       <div className="darkPage">
@@ -82,9 +82,10 @@ export async function getStaticProps() {
     'type',
   ])
 
+
   const posts = await Promise.all(allPosts);
-  
-  const finalPosts = posts.filter(post => post.type !== 'Animation')
+
+  const finalPosts = posts.filter(post => post.type === 'Animation')
 
   return {
     props: {
