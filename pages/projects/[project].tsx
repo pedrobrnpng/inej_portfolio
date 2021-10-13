@@ -27,7 +27,7 @@ const Post = ({ post }) => {
         <title> {post.title} | {siteTitle}</title>
       </Head>
 
-      <div>
+      <div style={{paddingTop: 140}}>
         <div className={`${utilStyles.container}`}>
           <div className={`${utilStyles.row}`}>
             <div className={`${utilStyles.title}`}>
