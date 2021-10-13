@@ -41,7 +41,6 @@ export default function Layout({
       </Head>
 
       <motion.div
-        className="min-h-screen"
         initial="hidden"
         animate="enter"
         exit="exit"
