@@ -10,12 +10,9 @@
   justify-content: space-between;
   height: 150px;
   max-width: 1500px;
-  padding: 0px 24px;
   background-color: transparent;
   z-index: 50;
 }
-
-
 
 .navbarLogo, .navbarLinkContainer{
   background: rgba(20, 20, 20, 0.8);
