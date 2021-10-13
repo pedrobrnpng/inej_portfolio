@@ -5,12 +5,15 @@ type Props = {
   title: string
   project: string
   img: string
+  color: string
 }
+
 
 export default function ProjectCard({
   project,
   img,
-  title
+  title,
+  color
 }: Props) {
 
   return (
@@ -26,7 +29,25 @@ export default function ProjectCard({
             />
           </div>
 
-          <div className={`${utilStyles.overlay}`}>
+          <div className={`overlay`} >
+            <style jsx>{`
+                .overlay {
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 0;
+                  right: 0;
+                  height: 100%;
+                  width: 100%;
+                  opacity: 0;
+                  transition: .5s ease;
+                  background-color: rgba(${color});
+                }
+
+                .overlay:hover{
+                  opacity: 1;
+                }
+              `}</style>
             <div className={`${utilStyles.text}`}>
               {title}
             </div>
