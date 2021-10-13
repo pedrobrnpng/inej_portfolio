@@ -52,7 +52,7 @@ export default function Home({ allPosts }: Props) {
         </section>
 
         <section id="projects">
-          <div>
+          <div style={{paddingTop: 150}}>
 
             {/* SHOWCASE */}
             <div className="centerPage">
