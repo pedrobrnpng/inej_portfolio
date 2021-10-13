@@ -38,11 +38,9 @@ export default function Home({ allPosts }: Props) {
   }, []);
 
   return (
-    <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
-
+    <><Head>
+      <title>{siteTitle}</title>
+    </Head>
       {/* background */}
       <section>
         <div className={`${utilStyles.test}`}>
@@ -54,8 +52,7 @@ export default function Home({ allPosts }: Props) {
                 src="/images/background_.jpg"
                 layout="fill"
                 objectFit="cover"
-                quality={100}
-              />
+                quality={100} />
               :
               <Image
                 className={`${utilStyles.test}`}
@@ -63,8 +60,7 @@ export default function Home({ allPosts }: Props) {
                 alt="Background"
                 layout="fill"
                 objectFit="cover"
-                quality={100}
-              />
+                quality={100} />
               // <video
               //   className={`${utilStyles.video}`}
               //   autoPlay
@@ -81,26 +77,28 @@ export default function Home({ allPosts }: Props) {
             <h6 className={`${utilStyles.videoText2}`}>Animation and Illustration</h6>
           </div>
           <div>
-            <a href="#projects" className={`${utilStyles.scrollDown}`} ></a>
+            <a href="#projects" className={`${utilStyles.scrollDown}`}></a>
           </div>
         </div>
       </section>
 
-        <section id="projects">
 
-          {/* SHOWCASE */}
-          <div className="centerPage">
-            <Gallery allPosts={allPosts} />
-          </div>
-
-          {/* FOOTER */}
-          <Footer />
+      <section id="projects">
+        <Layout>
           <div>
 
+            {/* SHOWCASE */}
+            <div className="centerPage">
+              <Gallery allPosts={allPosts} />
+            </div>
+
+            {/* FOOTER */}
+
           </div>
-        </div>
+        </Layout>
+
       </section>
-    </Layout>
+    </>
   )
 }
 
