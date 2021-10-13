@@ -5,6 +5,24 @@ import getWindowDimensions from '../../utils/windowUtils';
 
 export default function Navbar({ dark }) {
 
+  const navigationLinks = [
+    {
+      text: 'Animation',
+      href: '/animation',
+      last: false
+    },
+    {
+      text: 'Portfolio',
+      href: '/portfolio',
+      last: false
+    },
+    {
+      text: 'About Me',
+      href: '/about/me',
+      last: true
+    }
+  ]
+
   const [width, setWidth] = useState<number>();
   const [height, setHeight] = useState<number>();
   const [active, setActive] = useState(false);
@@ -40,15 +58,24 @@ export default function Navbar({ dark }) {
       {width > 1150 ?
         <div className={`${utilStyles.navbarLinkContainer} ${dark ? utilStyles.white : utilStyles.dark}`}>
           <ul>
-            <li style={{marginRight: 48}}>
-              <Link href="/animation">Animation</Link>
-            </li>
-            <li style={{marginRight: 48}}>
-              <Link href="/portfolio">Portfolio</Link>
-            </li>
-            <li>
-              <Link href="/about/me">About</Link>
-            </li>
+            {
+              navigationLinks.map(({ text, href, last }) => {
+                if (last) {
+                  return (
+                    <li>
+                      <Link href={href}>{text}</Link>
+                    </li>
+                  )
+                } else {
+                  return (
+                    <li style={{ marginRight: 48 }}>
+                      <Link href={href}>{text}</Link>
+                    </li>
+                  )
+                }
+
+              })
+            }
           </ul>
         </div>
         :
