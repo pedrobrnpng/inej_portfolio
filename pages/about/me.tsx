@@ -22,7 +22,7 @@ export default function AboutMe({
       <Head>
         <title>About Me</title>
       </Head>
-      <div>
+      <div className="whiteBg">
         <Navbar dark={false} />
         <div className={`${utilStyles.aboutContainer}`}>
           <div className={`${utilStyles.row}`}>
