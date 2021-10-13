@@ -46,7 +46,6 @@ export default function Animation({ allPosts }: Props) {
 
       <div className="darkPage">
 
-
         <section className="centerPage">
           
           {uniqueTypes.map(type => {

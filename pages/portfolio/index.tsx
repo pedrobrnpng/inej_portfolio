@@ -46,7 +46,6 @@ export default function Portfolio({ allPosts }: Props) {
 
       <div className="darkPage">
 
-
         <section className="centerPage">
           
           {uniqueTypes.map(type => {
@@ -63,7 +62,6 @@ export default function Portfolio({ allPosts }: Props) {
           })
           }
         </section>
-
 
       </div>
 

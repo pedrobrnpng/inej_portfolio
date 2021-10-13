@@ -4,6 +4,8 @@ import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import Navbar from './navbar'
+import Footer from './footer'
 
 const name = '[Inês Pinheiro]'
 export const siteTitle = 'Inês Pinheiro'
@@ -21,7 +23,7 @@ export default function Layout({
   children: React.ReactNode
   home?: boolean
 }) {
-  
+
   return (
     <div className={styles.container}>
       <Head>
@@ -37,16 +39,18 @@ export default function Layout({
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      
+
       <motion.div
         className="min-h-screen"
         initial="hidden"
         animate="enter"
         exit="exit"
         variants={variants}
-        transition={{ type: 'linear'}}
+        transition={{ type: 'linear' }}
       >
-      <main>{children}</main>
+        {/* <Navbar dark={false} /> */}
+        <main>{children}</main>
+        {/* <Footer /> */}
       </motion.div>
     </div>
   )

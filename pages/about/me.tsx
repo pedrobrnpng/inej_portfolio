@@ -8,6 +8,7 @@ import InstagramIcon from '@material-ui/icons/Instagram'
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import MovieIcon from '@material-ui/icons/Movie';
+import Layout from "../../components/layout"
 
 
 export default function AboutMe({
@@ -23,7 +24,7 @@ export default function AboutMe({
         <title>About Me</title>
       </Head>
       <div className="whiteBg">
-        <Navbar dark={false} />
+        <Layout>
         <div className={`${utilStyles.aboutContainer}`}>
           <div className={`${utilStyles.row}`}>
             <div className={`${utilStyles.imageContainer}`}>
@@ -54,6 +55,7 @@ export default function AboutMe({
           </div>
 
         </div>
+        </Layout>
       </div>
 
     </div>
