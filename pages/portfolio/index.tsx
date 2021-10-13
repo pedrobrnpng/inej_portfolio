@@ -46,7 +46,6 @@ export default function Portfolio({ allPosts }: Props) {
 
       <div className="darkPage">
 
-        <Navbar dark={true} />
 
         <section className="centerPage">
           
@@ -65,7 +64,6 @@ export default function Portfolio({ allPosts }: Props) {
           }
         </section>
 
-        <Footer />
 
       </div>
 

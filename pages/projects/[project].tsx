@@ -28,7 +28,6 @@ const Post = ({ post }) => {
       </Head>
 
       <div>
-        <Navbar dark={false} />
         <div className={`${utilStyles.container}`}>
           <div className={`${utilStyles.row}`}>
             <div className={`${utilStyles.title}`}>
@@ -94,7 +93,6 @@ const Post = ({ post }) => {
 
 
         </div>
-        <Footer />
       </div>
     </Layout>
   )

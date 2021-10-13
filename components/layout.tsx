@@ -3,9 +3,16 @@ import Image from 'next/image'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 const name = '[Inês Pinheiro]'
 export const siteTitle = 'Inês Pinheiro'
+
+const variants = {
+  hidden: { opacity: 0 },
+  enter: { opacity: 1 },
+  exit: { opacity: 0 },
+};
 
 export default function Layout({
   children,
@@ -14,6 +21,7 @@ export default function Layout({
   children: React.ReactNode
   home?: boolean
 }) {
+  
   return (
     <div className={styles.container}>
       <Head>
@@ -30,8 +38,16 @@ export default function Layout({
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       
+      <motion.div
+        className="min-h-screen"
+        initial="hidden"
+        animate="enter"
+        exit="exit"
+        variants={variants}
+        transition={{ type: 'linear'}}
+      >
       <main>{children}</main>
-      
+      </motion.div>
     </div>
   )
 }

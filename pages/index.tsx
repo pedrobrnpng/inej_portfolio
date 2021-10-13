@@ -10,6 +10,7 @@ import getWindowDimensions from '../utils/windowUtils'
 import { Post } from '../types/post'
 import { getAllPosts } from '../lib/projects'
 import Gallery from '../components/shared-components/gallery'
+import LandingPage from '../components/landingPage'
 
 type Props = {
   allPosts: Post[]
@@ -38,54 +39,21 @@ export default function Home({ allPosts }: Props) {
   }, []);
 
   return (
-    <><Head>
-      <title>{siteTitle}</title>
-    </Head>
-      {/* background */}
-      <section>
-        <div className={`${utilStyles.test}`}>
-          <div className={`${utilStyles.ParallaxVideo}`}>
-            {width <= 1150 ?
-              <Image
-                className={`${utilStyles.test}`}
-                alt="Background"
-                src="/images/background_.jpg"
-                layout="fill"
-                objectFit="cover"
-                quality={100} />
-              :
-              <Image
-                className={`${utilStyles.test}`}
-                src="/images/background2.gif"
-                alt="Background"
-                layout="fill"
-                objectFit="cover"
-                quality={100} />
-              // <video
-              //   className={`${utilStyles.video}`}
-              //   autoPlay
-              //   muted
-              //   loop
-              //   id='background'
-              // >
-              //   <source src="/videos/background.mp4" type="video/mp4" />
-              // </video>
-            }
-          </div>
-          <div className={`${utilStyles.content} ${utilStyles.videoText}`}>
-            <h1 className={`${utilStyles.videoText}`}>INÊS PINHEIRO</h1>
-            <h6 className={`${utilStyles.videoText2}`}>Animation and Illustration</h6>
-          </div>
-          <div>
-            <a href="#projects" className={`${utilStyles.scrollDown}`}></a>
-          </div>
-        </div>
-      </section>
+    <>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
 
+      <Layout>
 
-      <section id="projects">
-        <Layout>
+        {/* background */}
+        <section>
+          <LandingPage />
+        </section>
+
+        <section id="projects">
           <div>
+            <Navbar dark={false} />
 
             {/* SHOWCASE */}
             <div className="centerPage">
@@ -95,9 +63,10 @@ export default function Home({ allPosts }: Props) {
             {/* FOOTER */}
 
           </div>
-        </Layout>
 
-      </section>
+        </section>
+      </Layout>
+
     </>
   )
 }

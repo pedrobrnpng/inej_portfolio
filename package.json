@@ -13,6 +13,7 @@
     "@u-wave/react-vimeo": "^0.9.4",
     "@vimeo/player": "^2.16.1",
     "date-fns": "^2.11.1",
+    "framer-motion": "^4.1.17",
     "gray-matter": "^4.0.2",
     "next": "^10.0.0",
     "react": "16.13.1",
