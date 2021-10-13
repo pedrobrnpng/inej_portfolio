@@ -37,5 +37,9 @@ h5 {
 }
 
 .darkPage {
-  background: #0f0f0f;
+  background: #141414;
+}
+
+.whiteBg {
+  background: #F7F3F5;
 }
