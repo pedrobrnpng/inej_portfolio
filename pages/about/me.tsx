@@ -22,8 +22,7 @@ export default function AboutMe({
       <Head>
         <title>About Me</title>
       </Head>
-      <div>
-        <Navbar dark={false} />
+      <div className="whiteBg">
         <div className={`${utilStyles.aboutContainer}`}>
           <div className={`${utilStyles.row}`}>
             <div className={`${utilStyles.imageContainer}`}>
