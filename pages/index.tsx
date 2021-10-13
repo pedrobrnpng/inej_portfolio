@@ -86,10 +86,7 @@ export default function Home({ allPosts }: Props) {
         </div>
       </section>
 
-      <section id="#projects">
-        <div className={`${utilStyles.ParallaxContent}`}>
-          {/* NAVBAR */}
-          <Navbar dark={true} />
+        <section id="projects">
 
           {/* SHOWCASE */}
           <div className="centerPage">
