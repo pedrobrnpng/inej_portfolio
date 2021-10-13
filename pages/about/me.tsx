@@ -23,7 +23,7 @@ export default function AboutMe({
       <Head>
         <title>About Me</title>
       </Head>
-      <div className="whiteBg">
+      <div>
         <Layout>
         <div className={`${utilStyles.aboutContainer}`}>
           <div className={`${utilStyles.row}`}>

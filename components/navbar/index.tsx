@@ -32,7 +32,7 @@ export default function Navbar({ dark }) {
 
   return (
     <div className={`${utilStyles.navbar}`}>
-      <div>
+      <div className={`${utilStyles.navbarLogo}`}>
         <Link href="/">
           <h3>INÊS PINHEIRO</h3>
         </Link>
@@ -40,10 +40,10 @@ export default function Navbar({ dark }) {
       {width > 1150 ?
         <div className={`${utilStyles.navbarLinkContainer} ${dark ? utilStyles.white : utilStyles.dark}`}>
           <ul>
-            <li>
+            <li style={{marginRight: 48}}>
               <Link href="/animation">Animation</Link>
             </li>
-            <li>
+            <li style={{marginRight: 48}}>
               <Link href="/portfolio">Portfolio</Link>
             </li>
             <li>

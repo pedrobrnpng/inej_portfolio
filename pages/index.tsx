@@ -53,7 +53,6 @@ export default function Home({ allPosts }: Props) {
 
         <section id="projects">
           <div>
-            <Navbar dark={false} />
 
             {/* SHOWCASE */}
             <div className="centerPage">
