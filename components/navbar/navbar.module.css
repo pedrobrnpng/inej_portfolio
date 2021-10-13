@@ -7,14 +7,20 @@
   -webkit-box-pack: justify;
   justify-content: space-between;
   height: 150px;
-  max-width: 2000px;
+  max-width: 1500px;
   padding: 0px 24px;
   margin: 0px auto;
 }
 
 .navbar h3 {
-  color: #a091ff;
+  color: #C26CCB;
   font-size: 30px;
+  transition: .5s ease-in-out;
+}
+
+.navbar h3:hover {
+  color: #905097;
+  cursor: pointer;
 }
 
 .navbarLinkContainer {
@@ -46,6 +52,14 @@
 .navbarLinkContainer li {
   display: inline;
   margin-left: 48px;
+}
+
+.navbarLinkContainer a {
+  transition: .5s ease;
+}
+
+.navbarLinkContainer a:hover {
+  color: #C26CCB;
 }
 
 .navbarMenu {
