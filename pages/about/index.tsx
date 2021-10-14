@@ -11,6 +11,7 @@ export default function AboutMe({
   pageData
 }: {
   pageData: {
+    img: string
     contentHtml: string
   }
 }) {
@@ -29,7 +30,7 @@ export default function AboutMe({
                 transition={{ delay: .4 }}
                 className={`${utilStyles.imageContainer}`}
               >
-                <Image width={800} height={1000} alt="profile" src="/images/yo.webp" quality={100} />
+                <Image width={800} height={1000} alt="profile" src={`${pageData.img}`} quality={100} />
               </motion.div>
               <motion.div
                 initial={{ x: 200, opacity: 0 }}

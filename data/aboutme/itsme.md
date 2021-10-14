@@ -1,6 +1,5 @@
 ---
-title: "About Me"
-date: "2020-01-01"
+img: "/images/yo.webp"
 ---
 
 I am an **animator** and artist from _Porto, Portugal_.
