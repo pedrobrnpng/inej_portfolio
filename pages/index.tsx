@@ -1,10 +1,6 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
-import Navbar from '../components/navbar'
-import Showcase from '../components/shared-components/gallery'
-import Footer from '../components/footer'
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import getWindowDimensions from '../utils/windowUtils'
 import { Post } from '../types/post'
@@ -17,26 +13,6 @@ type Props = {
 }
 
 export default function Home({ allPosts }: Props) {
-
-  const [width, setWidth] = useState<number>();
-  const [height, setHeight] = useState<number>();
-
-  useEffect(() => {
-    const { width, height } = getWindowDimensions();
-    setWidth(width);
-    setHeight(height);
-  }, []);
-
-  useEffect(() => {
-    function handleResize() {
-      const { width, height } = getWindowDimensions();
-      setWidth(width);
-      setHeight(height);
-    }
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
     <>
@@ -52,10 +28,23 @@ export default function Home({ allPosts }: Props) {
         </section>
 
         <section id="projects">
-          <div style={{paddingTop: 150}}>
+          <style>{`
+            .content {
+              padding-top: 150px;
+            }
+
+            @media only screen and (max-width: 1150px){
+              .content {
+                padding-top: 0;
+              }
+            }
+            }
+            `}
+          </style>
+          <div>
 
             {/* SHOWCASE */}
-            <div className="centerPage">
+            <div className={`centerPage content`}>
               <Gallery allPosts={allPosts} />
             </div>
 

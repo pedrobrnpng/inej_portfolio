@@ -44,7 +44,7 @@ export default function Animation({ allPosts }: Props) {
         <title>Animation | {siteTitle}</title>
       </Head>
 
-      <div className="darkPage" style={{paddingTop: 140}}>
+      <div className={`${utilStyles.content}`}>
 
         <section className="centerPage">
           

@@ -44,7 +44,7 @@ export default function Portfolio({ allPosts }: Props) {
         <title>Portfolio | {siteTitle}</title>
       </Head>
 
-      <div className="darkPage" style={{paddingTop: 140}}>
+      <div className={`${utilStyles.content}`}>
 
         <section className="centerPage">
           

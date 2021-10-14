@@ -15,7 +15,9 @@ export default function App({ Component, pageProps }: AppProps) {
         initial={false}
         onExitComplete={() => window.scrollTo(0, 0)}
       >
-        <Component {...pageProps} />
+        <div style={{minHeight: '89vh'}}>
+          <Component {...pageProps} />
+        </div>
       </AnimatePresence>
 
       <Footer />

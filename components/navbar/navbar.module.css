@@ -3,13 +3,11 @@
   position: fixed;
   justify-content: space-between;
   width: 100%;
-  left: 10%;
-  transform: translate(-50%, 0);
   align-items: center;
   height: 150px;
-  max-width: 1500px;
   background-color: transparent;
   z-index: 50;
+  padding: 0 50px;
 }
 
 .navbarLogo {
@@ -64,7 +62,8 @@
 
 .navbarLinkContainer li {
   display: inline;
-  margin-left: 48px;
+  padding-left: 14px;
+  padding-right: 14px;
 }
 
 .navbarLinkContainer a {
@@ -96,6 +95,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .hamburgerLines {
@@ -119,6 +119,7 @@
   margin: 40px;
   opacity: 0;
   background-color: #fff;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 1150px) {

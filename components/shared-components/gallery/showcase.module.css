@@ -13,8 +13,14 @@
 
 /* Style your items */
 .my_masonry_grid_column > div { /* change div to reference your elements you put in <Masonry> */
-  background: #0f0f0f;
+  background: transparent;
   margin-bottom: 15px;
   justify-content: center;
   display: flex;
+}
+
+@media only screen and (max-width: 1150px) {
+  .my_masonry_grid {
+    padding: 20px
+  }
 }
