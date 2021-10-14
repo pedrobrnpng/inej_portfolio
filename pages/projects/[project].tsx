@@ -4,15 +4,10 @@ import Layout, { siteTitle } from '../../components/layout';
 import Head from 'next/head';
 import { getAllPosts, getPostByName } from '../../lib/projects'
 import utilStyles from "./project.module.css"
-
 import markdownToHtml from '../../lib/markdownToHtml'
 import { GetStaticPaths } from 'next';
-import Navbar from '../../components/navbar';
-import Footer from '../../components/footer'
 import Vimeo from '@u-wave/react-vimeo'
-import Image from 'next/image'
-
-
+import { motion } from 'framer-motion';
 
 const Post = ({ post }) => {
 
@@ -27,17 +22,26 @@ const Post = ({ post }) => {
         <title> {post.title} | {siteTitle}</title>
       </Head>
 
-      <div style={{paddingTop: 140}}>
+      <div style={{ paddingTop: 140 }}>
         <div className={`${utilStyles.container}`}>
           <div className={`${utilStyles.row}`}>
-            <div className={`${utilStyles.title}`}>
+            <motion.div
+              initial={{ x: -200, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: .2 }}
+              className={`${utilStyles.title}`}
+            >
               <h3>{post.title}</h3>
               <h5>{post.type}</h5>
-            </div>
-            <div className={`${utilStyles.aboutProject}`}>
-
+            </motion.div>
+            <motion.div
+              initial={{ x: 200, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: .2 }}
+              className={`${utilStyles.aboutProject}`}
+            >
               <div>
-                <h5>School Project my duck</h5>
+                <h5>School Project</h5>
               </div>
               <div>
                 <p>
@@ -47,51 +51,69 @@ const Post = ({ post }) => {
 
               <div className={`${utilStyles.metaRow}`}>
                 {post.colaborators.length > 0 ?
-                  <div className={`${utilStyles.colaborators}`}>
+                  <motion.div
+                    initial={{ y: 100, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: .2 }}
+                    className={`${utilStyles.colaborators}`}
+                  >
                     <h5>In colaboration with</h5>
                     {post.colaborators.map((name) => {
                       return (
                         <p>{name.trim()}</p>
                       )
                     })}
-                  </div>
+                  </motion.div>
                   :
                   <div></div>
                 }
 
                 {post.sound.length > 0 ?
-                  <div className={`${utilStyles.sound}`}>
+                  <motion.div
+                    initial={{ y: 100, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: .2 }}
+                    className={`${utilStyles.sound}`}
+                  >
                     <h5>Sound by</h5>
                     {post.sound.map((name) => {
                       return (
                         <p>{name.trim()}</p>
                       )
                     })}
-                  </div>
+                  </motion.div>
                   :
                   <div></div>
                 }
               </div>
-            </div>
+            </motion.div>
           </div>
           {post.videoUrl ?
-            <div className={`${utilStyles.vimeoContainer}`}>
+            <motion.div
+              initial={{ y: 200, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: .2 }}
+              className={`${utilStyles.vimeoContainer}`}
+            >
               <Vimeo
                 video={post.videoUrl}
                 responsive={true}
               />
-            </div>
+            </motion.div>
             :
-            <div className={`${utilStyles.imageContainer}`}>
+            <motion.div
+              initial={{ y: 200, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: .2 }}
+              className={`${utilStyles.imageContainer}`}
+            >
               <img
                 src={`${post.img}`}
                 alt={post.title}
                 title={post.title}
               />
-            </div>
+            </motion.div>
           }
-
-
         </div>
       </div>
     </Layout>
