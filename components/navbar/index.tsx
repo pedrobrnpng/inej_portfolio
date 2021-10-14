@@ -2,34 +2,18 @@ import utilStyles from './navbar.module.css';
 import Link from 'next/link'
 import { useEffect, useState } from 'react';
 import getWindowDimensions from '../../utils/windowUtils';
+import Hamburger from './hamburger';
+import { motion } from 'framer-motion';
+import Cross from './cross';
 
 export default function Navbar({ dark }) {
 
-  const navigationLinks = [
-    {
-      text: 'Animation',
-      href: '/animation',
-      last: false
-    },
-    {
-      text: 'Portfolio',
-      href: '/portfolio',
-      last: false
-    },
-    {
-      text: 'About Me',
-      href: '/about/me',
-      last: true
-    }
-  ]
-
+  const [isOpen, setIsOpen] = useState(false);
   const [width, setWidth] = useState<number>();
   const [height, setHeight] = useState<number>();
-  const [active, setActive] = useState(false);
 
-  const handleClick = () => {
-    setActive(!active);
-  }
+  const openMenu = () => setIsOpen(true);
+  const closeMenu = () => setIsOpen(false);
 
   useEffect(() => {
     const { width, height } = getWindowDimensions();
@@ -48,44 +32,71 @@ export default function Navbar({ dark }) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const variants = {
+    open: { opacity: 1, y: 0 },
+    closed: { opacity: 0, y: '-100%' },
+  };
+
+  const transition = {
+    type: 'spring',
+    mass: 0.7,
+    damping: (width < 1150) ? 13 : 10,
+    delay: (width < 1150) ? 0 : 0.5,
+  };
+
+  const navigationLinks = [
+    {
+      text: 'Home',
+      href: '/',
+    },
+    {
+      text: 'Animation',
+      href: '/animation',
+    },
+    {
+      text: 'Portfolio',
+      href: '/portfolio',
+    },
+    {
+      text: 'About',
+      href: '/about',
+    }
+  ]
+
   return (
-    <div className={`${utilStyles.navbar}`}>
-      <div className={`${utilStyles.navbarLogo}`}>
-        <Link href="/">
-          <h3>INÊS PINHEIRO</h3>
-        </Link>
-      </div>
-      {width > 1150 ?
-        <div className={`${utilStyles.navbarLinkContainer} ${dark ? utilStyles.white : utilStyles.dark}`}>
+    <>
+      <Hamburger onClick={openMenu} />
+      <motion.div
+        initial={'closed'}
+        animate={!isOpen && (width < 1150) ? 'closed' : 'open'}
+        variants={variants}
+        transition={transition}
+        role="menubar"
+        className={`${utilStyles.navbar}`}
+      >
+        <Cross onClick={closeMenu} />
+        <div className={`${utilStyles.navbarLogo}`}>
+          <Link href="/">
+            <h3>INÊS PINHEIRO</h3>
+          </Link>
+        </div>
+        <div className={`${utilStyles.navbarLinkContainer}`}>
           <ul>
             {
-              navigationLinks.map(({ text, href, last }) => {
-                if (last) {
-                  return (
-                    <li>
-                      <Link href={href}>{text}</Link>
-                    </li>
-                  )
-                } else {
-                  return (
-                    <li style={{ marginRight: 48 }}>
-                      <Link href={href}>{text}</Link>
-                    </li>
-                  )
-                }
-
+              navigationLinks.map(({ text, href }) => {
+                return (
+                  <li onClick={closeMenu}>
+                    <Link href={href}>
+                      {text}
+                    </Link>
+                  </li>
+                )
               })
             }
           </ul>
         </div>
-        :
-        <div
-          className={`${dark ? utilStyles.menuDark : utilStyles.menuWhite} ${utilStyles.navbarMenu} `}
-          onClick={handleClick}
-        >
-          <div></div>
-        </div>
-      }
-    </div>
+      </motion.div>
+    </>
+
   )
 }
