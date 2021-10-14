@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import getWindowDimensions from '../../utils/windowUtils';
 import Hamburger from './hamburger';
 import { motion } from 'framer-motion';
+import SocialIcons from '../shared-components/social-icons';
 import Cross from './cross';
 
 export default function Navbar({ dark }) {
@@ -45,10 +46,6 @@ export default function Navbar({ dark }) {
   };
 
   const navigationLinks = [
-    {
-      text: 'Home',
-      href: '/',
-    },
     {
       text: 'Animation',
       href: '/animation',
@@ -95,6 +92,7 @@ export default function Navbar({ dark }) {
             }
           </ul>
         </div>
+        <SocialIcons/>
       </motion.div>
     </>
 
