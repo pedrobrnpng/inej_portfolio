@@ -38,3 +38,13 @@
   transform: translate(-50%, -50%);
   text-align: center;
 }
+
+.icons {
+  display: flex;
+  justify-content: center;
+}
+
+.icons a {
+  color: #fff;
+  padding-right: 1rem;
+}
