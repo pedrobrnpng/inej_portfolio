@@ -1,15 +1,11 @@
-import Navbar from "../../components/navbar"
 import { getData } from '../../lib/aboutme'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import utilStyles from './aboutme.module.css'
 import Image from 'next/image'
-import InstagramIcon from '@material-ui/icons/Instagram'
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
-import MovieIcon from '@material-ui/icons/Movie';
 import Layout from "../../components/layout"
-
+import { motion } from 'framer-motion'
+import SocialIcons from '../../components/shared-components/social-icons'
 
 export default function AboutMe({
   pageData
@@ -25,39 +21,35 @@ export default function AboutMe({
       </Head>
       <div>
         <Layout>
-        <div className={`${utilStyles.aboutContainer}`}>
-          <div className={`${utilStyles.row}`}>
-            <div className={`${utilStyles.imageContainer}`}>
-              <Image width={800} height={1000} alt="profile" src="/images/yo.webp" quality={100} />
-            </div>
-            <div className={`${utilStyles.textContainer}`}>
-              <h3>AbOuT mE</h3>
-              <div dangerouslySetInnerHTML={{ __html: pageData.contentHtml }} />
-              <div className={`${utilStyles.icons}`}>
-                <div>
-                  <h3>Feel free to contact me</h3>
-                  <a href="https://www.instagram.com/inej.png/">
-                    <InstagramIcon />
-                  </a>
-                  <a href="https://vimeo.com/inespinheiro">
-                    <MovieIcon />
-                  </a>
-                  <a href="https://8cb1e5e5-3042-4c42-95ff-64c690ee536b.filesusr.com/ugd/de5a7f_c0834ed978d645babfb863eff3881d6e.pdf">
-                    <AssignmentIndIcon />
-                  </a>
-                  <a href="mailto:inej.pinheiro@gmail.com">
-                    <MailOutlineIcon />
-                  </a>
+          <div className={`${utilStyles.aboutContainer}`}>
+            <div className={`${utilStyles.row}`}>
+              <motion.div
+                initial={{ x: -200, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: .4 }}
+                className={`${utilStyles.imageContainer}`}
+              >
+                <Image width={800} height={1000} alt="profile" src="/images/yo.webp" quality={100} />
+              </motion.div>
+              <motion.div
+                initial={{ x: 200, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: .4 }}
+                className={`${utilStyles.textContainer}`}
+              >
+                <h3>AbOuT mE</h3>
+                <div dangerouslySetInnerHTML={{ __html: pageData.contentHtml }} />
+                <div className={`${utilStyles.icons}`}>
+                  <div>
+                    <h3>Feel free to contact me</h3>
+                    <SocialIcons />
+                  </div>
                 </div>
-
-              </div>
+              </motion.div>
             </div>
           </div>
-
-        </div>
         </Layout>
       </div>
-
     </div>
   )
 }

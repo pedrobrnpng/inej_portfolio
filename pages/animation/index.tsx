@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import getWindowDimensions from '../../utils/windowUtils'
 import { Post } from '../../types/post'
 import { getAllPosts } from '../../lib/projects'
+import { motion } from 'framer-motion'
 
 type Props = {
   allPosts: Post[]
@@ -51,9 +52,14 @@ export default function Animation({ allPosts }: Props) {
           {uniqueTypes.map(type => {
             return (
               <section>
-                <div className={`${utilStyles.text}`}>
+                <motion.div
+                  initial={{ x: -200, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: .4 }}
+                  className={`${utilStyles.text}`}
+                >
                   <h5>{type}</h5>
-                </div>
+                </motion.div>
                 <Gallery
                   allPosts={allPosts.filter(post => post.type === type)}
                 />

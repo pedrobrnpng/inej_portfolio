@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import getWindowDimensions from '../../utils/windowUtils'
 import { Post } from '../../types/post'
 import { getAllPosts } from '../../lib/projects'
+import { motion } from 'framer-motion'
 
 type Props = {
   allPosts: Post[]
@@ -37,7 +38,7 @@ export default function Portfolio({ allPosts }: Props) {
 
   var uniqueTypes = allPosts.map((post) => post.type.trim())
     .filter((value, index, self) => self.indexOf(value) === index)
-  
+
   return (
     <Layout home>
       <Head>
@@ -47,13 +48,18 @@ export default function Portfolio({ allPosts }: Props) {
       <div className={`${utilStyles.content}`}>
 
         <section className="centerPage">
-          
+
           {uniqueTypes.map(type => {
             return (
               <section>
-                <div className={`${utilStyles.text}`}>
+                <motion.div
+                  initial={{ x: -200, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: .4 }}
+                  className={`${utilStyles.text}`}
+                >
                   <h5>{type}</h5>
-                </div>
+                </motion.div>
                 <Gallery
                   allPosts={allPosts.filter(post => post.type === type)}
                 />
@@ -79,7 +85,7 @@ export async function getStaticProps() {
   ])
 
   const posts = await Promise.all(allPosts);
-  
+
   const finalPosts = posts.filter(post => post.type !== 'Animation')
 
   return {
