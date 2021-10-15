@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Navbar dark={true} />
+      <Navbar/>
 
       <AnimatePresence
         exitBeforeEnter
