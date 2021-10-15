@@ -27,6 +27,8 @@ export default function Layout({
   return (
     <div className={styles.container}>
       <Head>
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
