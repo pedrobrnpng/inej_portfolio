@@ -96,6 +96,8 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  box-shadow: rgb(0 0 0 / 6%) 0px 3px 20px 5px
+
 }
 
 .hamburgerLines {
@@ -112,8 +114,8 @@
   align-items: center;
   position: fixed;
   z-index: 50;
-  height: 40px;
-  width: 40px;
+  height: 52px;
+  width: 52px;
   top: 0;
   right: 0;
   margin: 40px;
@@ -128,27 +130,27 @@
     width: 100vw;
     height: 100%;
     left: 0;
-    background-color: #fff;
+    background-color: #141414;
     justify-content: center;
     flex-direction: column;
   }
 
   .navbar a {
-    color: #000;
+    color: #FFF;
   }
 
   .navbarLogo {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: transparent;
     opacity: 1;
-    padding: 40px 0px;
+    padding: 20px 0px;
   }
 
   .navbarLinkContainer {
-    background: rgba(255,255,255,1);
+    background: transparent;
     justify-content: center;
     flex-direction: column;
     border-radius: 0;
-    padding: 0;
+    padding: 40px 0px;
   }
 
   .navbarLinkContainer ul {
@@ -177,6 +179,10 @@
 
   .cross {
     opacity: 1;
+  }
+
+  .socials {
+    padding: 20px 0px;
   }
 
 }

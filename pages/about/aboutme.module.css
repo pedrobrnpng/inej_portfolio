@@ -45,6 +45,10 @@
 
 @media only screen and (max-width: 1150px) {
 
+  .aboutContainer {
+    padding: 20px;
+  }
+
   .row {
     display: inline;
     margin: 0px auto;
