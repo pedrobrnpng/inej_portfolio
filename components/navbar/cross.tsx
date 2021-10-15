@@ -8,8 +8,8 @@ export default function Cross({ onClick }) {
       onClick={onClick}
       className={`${utilStyles.cross}`}
     >
-      <span style={{backgroundColor: '#f9f1f1', width: 40, height: 4, transform: 'rotate(45deg)'}} />
-      <span style={{backgroundColor: '#f9f1f1', width: 40, height: 4, transform: 'rotate(-45deg)', marginTop: '-3px' }} />
+      <span style={{backgroundColor: '#141414', width: 40, height: 4, transform: 'rotate(45deg)'}} />
+      <span style={{backgroundColor: '#141414', width: 40, height: 4, transform: 'rotate(-45deg)', marginTop: '-3px' }} />
     </div>
   );
 }
