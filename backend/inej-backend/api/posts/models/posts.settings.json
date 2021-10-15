@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "posts",
+  "info": {
+    "name": "Posts"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Type": {
+      "type": "string"
+    },
+    "Colaborators": {
+      "type": "string",
+      "regex": "(A-Z)*;"
+    },
+    "Sound": {
+      "type": "string",
+      "regex": "(A-Z)*;"
+    },
+    "Image": {
+      "type": "string"
+    },
+    "video": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    }
+  }
+}
