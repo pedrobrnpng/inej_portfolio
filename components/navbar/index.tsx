@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import SocialIcons from '../shared-components/social-icons';
 import Cross from './cross';
 
-export default function Navbar({ dark }) {
+export default function Navbar() {
 
   const [isOpen, setIsOpen] = useState(false);
   const [width, setWidth] = useState<number>();
@@ -74,7 +74,7 @@ export default function Navbar({ dark }) {
         <Cross onClick={closeMenu} />
         <div className={`${utilStyles.navbarLogo}`}>
           <Link href="/">
-            <h3>INÊS PINHEIRO</h3>
+            <h3 onClick={closeMenu}>INÊS PINHEIRO</h3>
           </Link>
         </div>
         <div className={`${utilStyles.navbarLinkContainer}`}>
@@ -92,7 +92,14 @@ export default function Navbar({ dark }) {
             }
           </ul>
         </div>
-        <SocialIcons/>
+        {width < 1150 ?
+          <div className={`${utilStyles.socials}`}>
+            <SocialIcons />
+          </div>
+          :
+          <></>
+        }
+
       </motion.div>
     </>
 
