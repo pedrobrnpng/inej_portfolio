@@ -1,0 +1,119 @@
+.container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0px auto;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  display: inline;
+  justify-content: flex-start;
+  width: 40%;
+  font-size: 40px;
+  line-height: 1.1;
+}
+
+.title h3 {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+}
+
+.title h5 {
+  margin: 0;
+  padding: 0;
+  font-size: 25px;
+  font-weight: 200;
+}
+
+.aboutProject {
+  justify-content: flex-end;
+  width: 60%;
+}
+
+.aboutProject h5 {
+  font-weight: 400;
+  font-size: 0.9em;
+  padding-top: 0;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.aboutProject p {
+  font-weight: 300;
+  margin: 0;
+}
+
+.metaRow {
+  padding-top: 10px;
+}
+
+.metaRow h5 {
+  font-weight: 400;
+  font-size: 0.9em;
+  padding-top: 0;
+  margin: 0;
+}
+
+.metaRow p {
+  font-weight: 200;
+  font-size: 18px;
+  list-style-type: none;
+}
+
+.metaRow ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.metaRow li {
+  font-weight: 200;
+  font-size: 18px;
+  list-style-type: none;
+}
+
+.vimeoContainer {
+  padding-top: 20px;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.colaborators {
+  padding-top: 20px;
+}
+
+.sound {
+  padding-top: 20px;
+}
+
+@media only screen and (max-width: 1150px) {
+
+  .container {
+    max-width: none;
+    width: fit-content;
+    margin: 20px auto;
+  }
+
+  .row {
+    display: inline;
+  }
+
+  .title {
+    text-align: center;
+    width: 100%;
+  }
+
+  .aboutProject {
+    text-align: center;
+    width: 100%;
+  }
+
+}

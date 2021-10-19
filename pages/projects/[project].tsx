@@ -1,13 +1,10 @@
 import ErrorPage from 'next/error'
 import { useRouter } from 'next/dist/client/router';
-import Layout, { siteTitle } from '../../components/layout';
-import Head from 'next/head';
+import Animation from '../../components/project/animation';
+import Drawing from '../../components/project/drawing';
 import { getAllPosts, getPostByName } from '../../lib/projects'
-import utilStyles from "./project.module.css"
 import markdownToHtml from '../../lib/markdownToHtml'
 import { GetStaticPaths } from 'next';
-import Vimeo from '@u-wave/react-vimeo'
-import { motion } from 'framer-motion';
 
 const Post = ({ post }) => {
 
@@ -17,106 +14,14 @@ const Post = ({ post }) => {
   }
 
   return (
-    <Layout>
-      <Head>
-        <title> {post.title} | {siteTitle}</title>
-      </Head>
-
-      <div style={{ paddingTop: 140 }}>
-        <div className={`${utilStyles.container}`}>
-          <div className={`${utilStyles.row}`}>
-            <motion.div
-              initial={{ x: -200, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: .2 }}
-              className={`${utilStyles.title}`}
-            >
-              <h3>{post.title}</h3>
-              <h5>{post.type}</h5>
-            </motion.div>
-            <motion.div
-              initial={{ x: 200, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: .2 }}
-              className={`${utilStyles.aboutProject}`}
-            >
-              <div>
-                <h5>School Project</h5>
-              </div>
-              <div>
-                <p>
-                  <div dangerouslySetInnerHTML={{ __html: post.content }} />
-                </p>
-              </div>
-
-              <div className={`${utilStyles.metaRow}`}>
-                {post.colaborators.length > 0 ?
-                  <motion.div
-                    initial={{ y: 100, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: .2 }}
-                    className={`${utilStyles.colaborators}`}
-                  >
-                    <h5>In colaboration with</h5>
-                    {post.colaborators.map((name) => {
-                      return (
-                        <p>{name.trim()}</p>
-                      )
-                    })}
-                  </motion.div>
-                  :
-                  <div></div>
-                }
-
-                {post.sound.length > 0 ?
-                  <motion.div
-                    initial={{ y: 100, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: .2 }}
-                    className={`${utilStyles.sound}`}
-                  >
-                    <h5>Sound by</h5>
-                    {post.sound.map((name) => {
-                      return (
-                        <p>{name.trim()}</p>
-                      )
-                    })}
-                  </motion.div>
-                  :
-                  <div></div>
-                }
-              </div>
-            </motion.div>
-          </div>
-          {post.videoUrl ?
-            <motion.div
-              initial={{ y: 200, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: .2 }}
-              className={`${utilStyles.vimeoContainer}`}
-            >
-              <Vimeo
-                video={post.videoUrl}
-                responsive={true}
-              />
-            </motion.div>
-            :
-            <motion.div
-              initial={{ y: 200, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: .2 }}
-              className={`${utilStyles.imageContainer}`}
-            >
-              <img
-                src={`${post.img}`}
-                alt={post.title}
-                title={post.title}
-              />
-            </motion.div>
-          }
-        </div>
-      </div>
-    </Layout>
+    <>
+      {
+        post.type == 'Animation' ?
+          <Animation post={post}/>
+          :
+          <Drawing post={post}/>
+      }
+    </>
   )
 }
 
