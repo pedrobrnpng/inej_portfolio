@@ -49,6 +49,7 @@
 .getInTouch h2 {
   margin: 0 0 20px 0;
   background: linear-gradient(306deg, #9500ff 50%, #c0f);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
