@@ -1,5 +1,5 @@
 import utilStyles from './contact-form.module.css'
-import { FaVimeoV, FaInstagram, FaEnvelope, FaWpforms, FaVimeoSquare } from 'react-icons/fa'
+import { FaVimeoV, FaInstagram, FaEnvelope, FaWpforms } from 'react-icons/fa'
 
 const socials = [
   {
@@ -17,7 +17,7 @@ const socials = [
   {
     id: 'curriculum',
     Icon: FaWpforms,
-    href: 'https://8cb1e5e5-3042-4c42-95ff-64c690ee536b.filesusr.com/ugd/de5a7f_c0834ed978d645babfb863eff3881d6e.pdf',
+    href: '/Ines-Pinheiro-CV.pdf',
     text: 'Curriculum'
   }
 ]
@@ -28,7 +28,7 @@ export default function ContactForm() {
     <div className={`${utilStyles.contactForm}`}>
       <div className={`${utilStyles.getInTouch}`}>
         <h2> Let's get in touch</h2>
-        <div className={`${utilStyles.form}`}>
+        <div>
           <form>
             <div className={`${utilStyles.row}`}>
               <input
@@ -47,7 +47,6 @@ export default function ContactForm() {
                 data-name="Email"
                 placeholder="Email"
                 className={`${utilStyles.input}`}
-
                 id="email"
               />
             </div>
@@ -59,7 +58,6 @@ export default function ContactForm() {
                 data-name="Subject"
                 placeholder="Subject"
                 className={`${utilStyles.input}`}
-
                 style={{ width: "100%" }}
                 id="subject"
               />
@@ -75,33 +73,33 @@ export default function ContactForm() {
                 data-name="Message"
               />
             </div>
-            <button
-              className={`${utilStyles.submitButton}`}
-            >
-              Submit
-            </button>
+            <div className={`${utilStyles.row}`}>
+              <button
+                className={`${utilStyles.submitButton}`}
+              >
+                Submit
+              </button>
+            </div>
           </form>
         </div>
       </div>
-      <div className={`${utilStyles.verticalLine}`}> </div>
+      <div className={`${utilStyles.line}`}> </div>
       <div className={`${utilStyles.contacts}`}>
         <h2>Don't feel like talking? </h2>
         <h5>Follow me on Social Media and check my curriculum </h5>
         <div className={`${utilStyles.form}`}>
           {socials.map(({ id, Icon, href, text }) => (
-            <div
-              className={`${utilStyles.contact}`}
-            >
+            <div className={`${utilStyles.contact}`}>
               <div style={{ display: "flex" }}>
+                <Icon
+                  fontSize={"1.5em"}
+                  style={{ alignItems: "center", marginRight: "10px" }}
+                />
                 <a
                   key={`social-icon-${id}`}
                   href={href}
-                  style={{ paddingLeft: "20px", display: "flex" }}
+                  style={{ paddingLeft: "10px", display: "flex" }}
                 >
-                  <Icon
-                    fontSize={"1.5em"}
-                    style={{ alignItems: "center", marginRight: "15px" }}
-                  />
                   {text}
                 </a>
               </div>
