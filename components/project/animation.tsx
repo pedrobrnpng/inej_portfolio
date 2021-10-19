@@ -32,21 +32,25 @@ export default function Animation({ post }) {
           </div>
           <h4>Credits:</h4>
           <div className={`${utilStyles.credits}`}>
-            <div>
-              <h5>Sound by</h5>
-              {post.sound.map((name) => {
-                return (
-                  <p>{name.trim()}</p>
-                )
-              })}
-            </div>
-            <div>
+            <div className={`${utilStyles.creditContainer}`}>
               <h5>In colaboration with</h5>
-              {post.colaborators.map((name) => {
-                return (
-                  <p>{name.trim()}</p>
-                )
-              })}
+              <ul>
+                {post.colaborators.map((name) => {
+                  return (
+                    <li>{name.trim()}</li>
+                  )
+                })}
+              </ul>
+            </div>
+            <div className={`${utilStyles.creditContainer}`}>
+              <h5>Sound by</h5>
+              <ul>
+                {post.sound.map((name) => {
+                  return (
+                    <li>{name.trim()}</li>
+                  )
+                })}
+              </ul>
             </div>
           </div>
         </div>

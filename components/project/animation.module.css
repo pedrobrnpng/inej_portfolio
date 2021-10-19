@@ -34,10 +34,28 @@
   font-size: 18px;
 }
 
+.textDescription p {
+  line-height: 15px;
+}
+
 .credits {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+}
+
+.creditContainer {
+  padding: 0px 50px 0px 10px;
+}
+
+.creditContainer ul {
+  margin: 0;
+  list-style-type: none;
+  padding-left: 10px;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 1150px) {
