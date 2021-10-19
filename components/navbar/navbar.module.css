@@ -16,12 +16,6 @@
   padding: 10px 20px;
 }
 
-.navbarLinkContainer {
-  background: rgba(20, 20, 20, 0.8);
-  border-radius: 5px;
-  padding: 10px 20px;
-}
-
 .navbarLogo h3 {
   color: #C26CCB;
   font-size: 30px;
@@ -40,18 +34,10 @@
   justify-content: flex-end;
 }
 
-.navbarLinkContainer a {
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 23px;
-}
-
-.white a {
-  color: #fff;
-}
-
-.dark a {
-  color: #000;
+.navbarLinkContainer {
+  background: rgba(20, 20, 20, 0.8);
+  border-radius: 5px;
+  padding: 10px 20px;
 }
 
 .navbarLinkContainer ul {
@@ -67,8 +53,34 @@
 }
 
 .navbarLinkContainer a {
+  cursor: pointer;
+  text-decoration: none;
+  /* text-transform: uppercase; */
+  letter-spacing: 0.1em;
+  position: relative;
   color: #fff;
-  transition: .5s ease;
+  font-size: 23px;
+  transition: color .3s ease;
+}
+
+.navbarLinkContainer a:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #C26CCB;
+  color: #C26CCB;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+
+.navbarLinkContainer a:hover:after {
+  width: 100%;
+  left: 0;
+  color: #C26CCB;
 }
 
 .navbarLinkContainer a:hover {
@@ -135,10 +147,6 @@
     flex-direction: column;
   }
 
-  .navbar a {
-    color: #FFF;
-  }
-
   .navbarLogo {
     background-color: transparent;
     opacity: 1;
@@ -167,10 +175,6 @@
     display: inline;
     margin-left: 0;
     margin: 8px 0;
-  }
-
-  .navbarLinkContainer a:hover {
-    text-decoration: underline;
   }
 
   .hamburgerContainer {
