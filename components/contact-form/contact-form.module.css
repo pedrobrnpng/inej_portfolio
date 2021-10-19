@@ -1,0 +1,90 @@
+.contactForm {
+  display: flex;
+  padding: 40px 0;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.verticalLine {
+  width: 1px;
+  background: linear-gradient(306deg, rgb(224, 102, 255) 50%, #9500ff);
+}
+
+.input {
+  border: 1px solid rgba(88, 88, 88, 0.5);
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
+  background-color: #141414;
+  outline: none;
+  caret-color: rgba(88, 88, 88, 0.5);
+  color: #fff;
+}
+
+.input:focus-visible {
+  border: 1px solid rgba(88, 88, 88, 0.5);
+}
+
+.submitButton {
+  padding: 10px 15px;
+  margin: 10px 10px;
+  border: none;
+  color: #FFF;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 20px 5px;
+  background: linear-gradient(306deg, #9500ff 27%, #c0f);
+}
+
+.getInTouch {
+  margin-bottom: 0px;
+  padding: 20px 40px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background: #141414;
+}
+
+.getInTouch h2 {
+  margin: 0 0 20px 0;
+  background: linear-gradient(306deg, #9500ff 50%, #c0f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contacts {
+  display: flex;
+  margin-top: 0px;
+  padding: 20px 20px 0 20px;
+  flex-direction: column;
+  border-radius: 5px;
+  background-color: #9d00ff00;
+  /* background-image: linear-gradient(306deg, #9500ff 27%, #c0f); */
+  background-clip: border-box;
+}
+
+.contacts h2 {
+  margin: 0;
+  background: linear-gradient(306deg, #c0f 50%, #9500ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contacts h5 {
+  margin: 5px 0 25px 0;
+}
+
+.contact {
+  align-items: center;
+  padding: 10px 5px;
+}
+
+.contact a {
+  color: #fff;
+  transition: .5s ease;
+}
+
+.contact a:hover {
+  color: #9500ff;
+}
