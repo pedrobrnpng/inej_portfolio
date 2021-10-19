@@ -67,6 +67,7 @@
 .contacts h2 {
   margin: 0;
   background: linear-gradient(306deg, #c0f 50%, #9500ff);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
