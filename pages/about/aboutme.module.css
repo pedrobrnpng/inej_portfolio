@@ -2,13 +2,12 @@
   margin: 0px auto;
   width: 100%;
   max-width: 1500px;
-  padding: 140px 20px 0px 20px;
+  padding: 150px 20px 0px 20px;
 }
 
 .row {
   display: flex;
   justify-content: space-between;
-  height: 800px;
   align-items: center;
 }
 

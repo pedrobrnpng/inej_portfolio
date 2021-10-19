@@ -51,3 +51,26 @@
   color: #666;
 }
 
+.showReel {
+  padding-top: 100px;
+}
+
+.showReel h1 {
+  margin: 0;
+  font-size: 48px;
+  padding-left: 15px;
+}
+
+.worksHeading h1 {
+  margin: 0;
+  font-size: 48px;
+  margin-block-start: -0.3em;
+  padding-left: 15px;
+}
+
+.worksHeading h6 {
+  margin: 0;
+  font-size: 12px;
+  color: #d5d5d5;
+  padding-left: 15px;
+}
