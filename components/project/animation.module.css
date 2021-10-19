@@ -35,7 +35,7 @@
 }
 
 .textDescription p {
-  line-height: 15px;
+  line-height: 25px;
 }
 
 .credits {
@@ -68,6 +68,18 @@
 
   .description {
     padding: 10px 20px 0 20px;
+  }
+
+  .credits {
+    flex-direction: column;
+  }
+
+  .creditContainer {
+    padding: 10px 7px;
+  }
+
+  .creditContainer ul {
+    padding-left: 8px;
   }
 
 }
