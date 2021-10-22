@@ -6,6 +6,7 @@ sound: ""
 date: "2020-01-01"
 img: "/images/anderson_pak.webp"
 videoUrl: ""
+selected: true
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 

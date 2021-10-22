@@ -6,6 +6,7 @@ sound: ""
 date: "2020-01-01"
 img: "/images/lighthouse.webp"
 videoUrl: ""
+selected: true
 ---
 
 William dafoe

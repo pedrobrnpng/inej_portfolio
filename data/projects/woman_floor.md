@@ -6,6 +6,7 @@ sound: ""
 date: "2020-01-01"
 img: "/images/woman_floor.webp"
 videoUrl: ""
+selected: false
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 

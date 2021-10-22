@@ -6,6 +6,7 @@ sound: "Kate Mercer"
 date: "2020-01-01"
 img: "https://static.wixstatic.com/media/de5a7f_fe451d57405140019abf4575ef68989f~mv2.gif"
 videoUrl: "https://vimeo.com/338707320"
+selected: true
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
