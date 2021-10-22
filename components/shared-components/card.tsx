@@ -8,7 +8,6 @@ type Props = {
   title: string
   project: string
   img: string
-  color: string
 }
 
 const variants = {
