@@ -17,14 +17,14 @@
 }
 
 .navbarLogo h3 {
-  color: #C26CCB;
+  color: rgb(204, 0, 255);
   font-size: 30px;
   transition: .5s ease-in-out;
   margin: 0;
 }
 
 .navbarLogo h3:hover {
-  color: #905097;
+  color: rgb(145, 0, 182);
   cursor: pointer;
 }
 
@@ -71,8 +71,8 @@
   height: 2px;
   left: 50%;
   position: absolute;
-  background: #C26CCB;
-  color: #C26CCB;
+  background: rgb(204, 0, 255);
+  color: rgb(204, 0, 255);
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
   width: 0;
 }
@@ -80,11 +80,11 @@
 .navbarLinkContainer a:hover:after {
   width: 100%;
   left: 0;
-  color: #C26CCB;
+  color: rgb(204, 0, 255);
 }
 
 .navbarLinkContainer a:hover {
-  color: #C26CCB;
+  color: rgb(204, 0, 255);
 }
 
 .navbarMenu {
