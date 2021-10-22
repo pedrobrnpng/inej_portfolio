@@ -21,7 +21,7 @@ const socials = [
   {
     id: 'curriculum',
     Icon: FaWpforms,
-    href: 'https://8cb1e5e5-3042-4c42-95ff-64c690ee536b.filesusr.com/ugd/de5a7f_c0834ed978d645babfb863eff3881d6e.pdf'
+    href: '/Ines-Pinheiro-CV.pdf',
   }
 ]
 
