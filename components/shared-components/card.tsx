@@ -31,8 +31,7 @@ export default function ProjectCard({
   onTopRow,
   project,
   img,
-  title,
-  color
+  title
 }: Props) {
   const scrollThreshold = onTopRow ? 0 : 0.5;
   const [viewRef, animate, setAnimationHasRun] = useAnimationOnScroll('show', scrollThreshold);
