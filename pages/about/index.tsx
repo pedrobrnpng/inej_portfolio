@@ -43,7 +43,7 @@ export default function AboutMe({
               <div dangerouslySetInnerHTML={{ __html: pageData.contentHtml }} />
             </motion.div>
           </div>
-          <ContactForm />
+          <ContactForm showSocials={true}/>
 
         </div>
 

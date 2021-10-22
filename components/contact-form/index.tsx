@@ -22,7 +22,7 @@ const socials = [
   }
 ]
 
-export default function ContactForm() {
+export default function ContactForm({ showSocials }) {
 
   return (
     <div className={`${utilStyles.contactForm}`}>
@@ -83,30 +83,37 @@ export default function ContactForm() {
           </form>
         </div>
       </div>
-      <div className={`${utilStyles.line}`}> </div>
-      <div className={`${utilStyles.contacts}`}>
-        <h2>Don't feel like talking? </h2>
-        <h5>Follow me on Social Media and check my curriculum </h5>
-        <div className={`${utilStyles.form}`}>
-          {socials.map(({ id, Icon, href, text }) => (
-            <div className={`${utilStyles.contact}`}>
-              <div style={{ display: "flex" }}>
-                <Icon
-                  fontSize={"1.5em"}
-                  style={{ alignItems: "center", marginRight: "10px" }}
-                />
-                <a
-                  key={`social-icon-${id}`}
-                  href={href}
-                  style={{ paddingLeft: "10px", display: "flex" }}
-                >
-                  {text}
-                </a>
-              </div>
+      {showSocials ?
+        <>
+          <div className={`${utilStyles.line}`}> </div>
+          <div className={`${utilStyles.contacts}`}>
+            <h2>Don't feel like talking? </h2>
+            <h5>Follow me on Social Media and check my curriculum </h5>
+            <div className={`${utilStyles.form}`}>
+              {socials.map(({ id, Icon, href, text }) => (
+                <div className={`${utilStyles.contact}`}>
+                  <div style={{ display: "flex" }}>
+                    <Icon
+                      fontSize={"1.5em"}
+                      style={{ alignItems: "center", marginRight: "10px" }}
+                    />
+                    <a
+                      key={`social-icon-${id}`}
+                      href={href}
+                      style={{ paddingLeft: "10px", display: "flex" }}
+                    >
+                      {text}
+                    </a>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
+        </>
+        :
+        <></>
+      }
+
     </div>
   )
 }
