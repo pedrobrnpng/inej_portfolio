@@ -15,11 +15,61 @@ export function getAllPosts(fields = []) {
   return posts;
 }
 
+export function getSelectedPosts(fields = []) {
+  const names = getProjectNames();
+  const posts = names
+    .map((project) => getSelectedPostByName(project, fields))
+  return posts;
+}
+
 export async function getPostByName(id: string, fields: string[] = []) {
+
   var name;
   if (id != null && id != undefined) {
     name = id.replace(/\.md$/, '');
   }
+
+  const { data, content } = getPostContent(name);
+
+  type Items = {
+    [key: string]: string
+  }
+  const items: Items = {};
+
+  fields.forEach((field) => {
+    items[field] = fillFields(field, name, data, content)
+  })
+
+  // Combine the data with the id and contentHtml
+  return items;
+}
+
+export async function getSelectedPostByName(id: string, fields: string[] = []) {
+
+  var name;
+  if (id != null && id != undefined) {
+    name = id.replace(/\.md$/, '');
+  }
+
+  const { data, content } = getPostContent(name);
+
+  type Items = {
+    [key: string]: string
+  }
+  const items: Items = {};
+
+  if (data.selected === true) {
+
+    fields.forEach((field) => {
+      items[field] = fillFields(field, name, data, content)
+    })
+  }
+
+  // Combine the data with the id and contentHtml
+  return items;
+}
+
+function getPostContent(name) {
 
   const fullPath = path.join(postsDirectory, `${name}.md`);
 
@@ -29,62 +79,54 @@ export async function getPostByName(id: string, fields: string[] = []) {
   }
 
   // Use gray-matter to parse the post metadata section
-  const { data, content } = matter(fileContents);
+  return matter(fileContents);
+}
 
-  type Items = {
-    [key: string]: string
+function fillFields(field, name, data, content) {
+
+  if (field === 'project') {
+    return name;
   }
-  const items: Items = {};
 
-  fields.forEach((field) => {
+  if (field === 'title') {
+    return data.title
+  }
 
-    if (field === 'project') {
-      items[field] = name
-    }
+  if (field === 'content') {
+    return content
+  }
 
-    if (field === 'title') {
-      items[field] = data.title
-    }
+  if (field === 'img') {
+    return data.img
+  }
 
-    if (field === 'content') {
-      items[field] = content
-    }
+  if (field === 'videoUrl') {
+    return data.videoUrl
+  }
 
-    if (field === 'img') {
-      items[field] = data.img
-    }
+  if (field === 'type') {
+    return data.type
+  }
 
-    if (field === 'videoUrl') {
-      items[field] = data.videoUrl
-    }
+  if (field === 'sound') {
+    var sound: any;
 
-    if (field === 'type') {
-      items[field] = data.type
-    }
+    if (data.sound)
+      sound = data.sound.split(";")
+    else
+      sound = [];
 
-    if (field === 'sound') {
-      var sound: any;
+    return sound;
+  }
 
-      if (data.sound)
-        sound = data.sound.split(";")
-      else
-        sound = [];
+  if (field === 'colaborators') {
+    var colaborators: any;
 
-      items[field] = sound;
-    }
+    if (data.colaborators)
+      colaborators = data.colaborators.split(";")
+    else
+      colaborators = []
 
-    if (field === 'colaborators') {
-      var colaborators: any;
-
-      if (data.colaborators) 
-        colaborators = data.colaborators.split(";")
-      else
-        colaborators = []
-
-      items[field] = colaborators;
-    }    
-  })
-  
-  // Combine the data with the id and contentHtml
-  return items;
+    return colaborators;
+  }
 }

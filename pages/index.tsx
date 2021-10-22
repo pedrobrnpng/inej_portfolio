@@ -1,9 +1,14 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
 import { Post } from '../types/post'
-import { getAllPosts } from '../lib/projects'
+import { getSelectedPosts } from '../lib/projects'
 import Gallery from '../components/shared-components/gallery'
 import LandingPage from '../components/landingPage'
+import Vimeo from "@u-wave/react-vimeo"
+import utilStyles from '../styles/utils.module.css'
+import ContactForm from '../components/contact-form'
+import React from 'react'
+import IndexContact from '../components/index-contact'
 
 type Props = {
   allPosts: Post[]
@@ -86,7 +91,7 @@ export default function Home({ allPosts }: Props) {
 
 export async function getStaticProps() {
 
-  const allPosts = await getAllPosts([
+  const allPosts = await getSelectedPosts([
     'project',
     'title',
     'img'
