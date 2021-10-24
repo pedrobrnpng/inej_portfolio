@@ -1,8 +1,8 @@
 backend:
-  name: git-gateway
-  repo: pedrobrnpng/inej_portfolio
-  branch: main # Branch to update (optional; defaults to master)
-  # name: test-repo
+  # name: git-gateway
+  # repo: pedrobrnpng/inej_portfolio
+  # branch: main # Branch to update (optional; defaults to master)
+  name: test-repo
 publish_mode: editorial_workflow
 media_folder: "public/images"
 public_folder: img
