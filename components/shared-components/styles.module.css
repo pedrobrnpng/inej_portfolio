@@ -46,5 +46,11 @@
 
 .icons a {
   color: #fff;
+  font-size: 22px;
   padding: 0px 10px;
+  transition: .5s ease;
+}
+
+.icons a:hover {
+  color: #9500ff;
 }
