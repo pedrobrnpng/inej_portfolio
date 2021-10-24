@@ -26,7 +26,7 @@
 }
 
 .input:focus-visible {
-  border: 1px solid rgba(88, 88, 88, 0.5);
+  border: 1px solid rgba(121, 121, 121, 0.5);
 }
 
 .submitButton {
@@ -36,6 +36,12 @@
   color: #FFF;
   box-shadow: rgb(0 0 0 / 20%) 0px 3px 20px 5px;
   background: linear-gradient(306deg, #9500ff 27%, #c0f);
+  transition: background .5s ease;
+}
+
+.submitButton:hover {
+  cursor: pointer;
+  background: linear-gradient(306deg, #6c00b9 27%, rgb(152, 0, 190));
 }
 
 .getInTouch {
@@ -61,7 +67,6 @@
   flex-direction: column;
   border-radius: 5px;
   background-color: #9d00ff00;
-  /* background-image: linear-gradient(306deg, #9500ff 27%, #c0f); */
   background-clip: border-box;
 }
 
@@ -91,7 +96,7 @@
   color: #9500ff;
 }
 
-@media only screen and (max-width: 1150px) {
+@media only screen and (max-width: 880px) {
 
   .contactForm {
     flex-direction: column;
