@@ -112,6 +112,10 @@
     align-items: center;
   }
 
+  .getInTouch {
+    padding: 0;
+  }
+
   .getInTouch h2 {
     text-align: center;
   }
