@@ -59,7 +59,6 @@ export async function getSelectedPostByName(id: string, fields: string[] = []) {
   const items: Items = {};
 
   if (data.selected === true) {
-
     fields.forEach((field) => {
       items[field] = fillFields(field, name, data, content)
     })

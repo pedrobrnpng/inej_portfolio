@@ -16,13 +16,17 @@ const breakpoints = {
 
 export default function Gallery({ allPosts }: Props) {
 
+  const filteredPosts = allPosts.filter(post => post.project !== undefined)
+
+  console.log(filteredPosts);
+
   return (
     <Masonry
       breakpointCols={breakpoints}
       className={`${utilStyles.my_masonry_grid}`}
       columnClassName={`${utilStyles.my_masonry_grid_column}`}
     >
-      {allPosts.map((post, index) => {
+      {filteredPosts.map((post, index) => {
         const onTopRow = index < 3;
         return (
           <ProjectCard
