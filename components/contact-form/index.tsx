@@ -1,5 +1,7 @@
 import utilStyles from './contact-form.module.css'
 import { FaVimeoV, FaInstagram, FaEnvelope, FaWpforms } from 'react-icons/fa'
+import emailjs from 'emailjs-com'
+import { useRef } from 'react';
 
 const socials = [
   {
@@ -24,26 +26,34 @@ const socials = [
 
 export default function ContactForm({ showSocials }) {
 
+  const form = useRef();
+  
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_yvjltlm','template_zquj8lt', form.current, 'user_VtREJCHwKp3BsNwPfimGl')
+  }
+
   return (
     <div className={`${utilStyles.contactForm}`}>
       <div className={`${utilStyles.getInTouch}`}>
-        <h2> Let's get in touch</h2>
+        <h2>Let's get in touch</h2>
         <div>
-          <form>
+          <form ref={form} onSubmit={sendEmail} >
             <div className={`${utilStyles.row}`}>
               <input
-                type="text"
+                type="name"
                 maxLength={100}
-                name="name"
+                name="from_name"
                 data-name="Name"
                 placeholder="Name"
                 className={`${utilStyles.input}`}
                 id="name"
               />
               <input
-                type="text"
+                type="email"
                 maxLength={100}
-                name="email"
+                name="reply_to"
                 data-name="Email"
                 placeholder="Email"
                 className={`${utilStyles.input}`}
@@ -52,7 +62,7 @@ export default function ContactForm({ showSocials }) {
             </div>
             <div className={`${utilStyles.row}`}>
               <input
-                type="text"
+                type="subject"
                 maxLength={100}
                 name="subject"
                 data-name="Subject"
@@ -67,7 +77,7 @@ export default function ContactForm({ showSocials }) {
                 placeholder="Message"
                 maxLength={5000}
                 id="Message"
-                name="Message"
+                name="message"
                 style={{ width: "100%", height: "100px" }}
                 className={`${utilStyles.input}`}
                 data-name="Message"
@@ -76,6 +86,7 @@ export default function ContactForm({ showSocials }) {
             <div className={`${utilStyles.row}`}>
               <button
                 className={`${utilStyles.submitButton}`}
+                type="submit"
               >
                 Submit
               </button>
