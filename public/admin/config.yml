@@ -17,7 +17,7 @@ collections:
         fields: 
           - label: "Image"
             name: "img"
-            widget: "string"
+            widget: "image"
           - label: "Description"
             name: "body"
             widget: "markdown"
