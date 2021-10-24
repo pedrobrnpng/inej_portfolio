@@ -67,7 +67,7 @@ export default function ProjectCard({
                   width: 100%;
                   opacity: 0;
                   transition: .5s ease;
-                  background-color: rgba(17, 17, 17, 0.8);
+                  background-color: rgba(17, 17, 17, 0.9);
                 }
 
                 .overlay:hover{
