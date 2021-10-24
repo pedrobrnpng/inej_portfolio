@@ -51,8 +51,8 @@ export default function Navbar() {
       href: '/animation',
     },
     {
-      text: 'Portfolio',
-      href: '/portfolio',
+      text: 'Illustration',
+      href: '/illustration',
     },
     {
       text: 'About',
