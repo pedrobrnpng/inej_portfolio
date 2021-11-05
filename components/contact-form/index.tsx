@@ -1,5 +1,5 @@
 import utilStyles from './contact-form.module.css'
-import { FaVimeoV, FaInstagram, FaEnvelope, FaWpforms } from 'react-icons/fa'
+import { FaVimeoV, FaInstagram, FaWpforms } from 'react-icons/fa'
 import emailjs from 'emailjs-com'
 import { useRef } from 'react';
 
