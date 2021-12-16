@@ -7,15 +7,15 @@ import Layout from "../../components/layout"
 import { motion } from 'framer-motion'
 import SocialIcons from '../../components/shared-components/social-icons'
 import ContactForm from '../../components/contact-form'
+import { createClient } from '../../prismic-config'
+import { convertPrismicToAbout } from '../../utils/prismicConversions'
+import { RichText } from 'prismic-reactjs'
 
 export default function AboutMe({
   pageData
-}: {
-  pageData: {
-    img: string
-    contentHtml: string
-  }
 }) {
+  console.log(pageData);
+  const { data } = pageData;
   return (
     <div>
       <Head>
@@ -31,7 +31,7 @@ export default function AboutMe({
               transition={{ delay: .4 }}
               className={`${utilStyles.imageContainer}`}
             >
-              <Image width={800} height={1000} alt="profile" src={`${pageData.img}`} quality={100} />
+              <Image width={data.img.width} height={data.img.height} alt={data.img.alt} src={data.img.url} quality={100} />
             </motion.div>
             <motion.div
               initial={{ x: 200, opacity: 0 }}
@@ -40,13 +40,13 @@ export default function AboutMe({
               className={`${utilStyles.textContainer}`}
             >
               <h3>AbOuT mE</h3>
-              <div dangerouslySetInnerHTML={{ __html: pageData.contentHtml }} />
+              <RichText
+                render={data.description}
+              />
             </motion.div>
           </div>
-          <ContactForm showSocials={true}/>
-
+          <ContactForm showSocials={true} />
         </div>
-
       </Layout>
       <div>
 
@@ -57,11 +57,13 @@ export default function AboutMe({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const pageData = await getData('itsme')
+
+  const client = await createClient();
+  const pageData = await client.getByType('about_page');
 
   return {
     props: {
-      pageData
+      pageData: convertPrismicToAbout(pageData)
     }
   }
 }

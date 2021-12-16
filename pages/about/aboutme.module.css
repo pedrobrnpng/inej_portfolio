@@ -15,7 +15,7 @@
   justify-content: flex-start;
   display: block;
   margin: 0px auto;
-  width: 40%;
+  width: 30%;
 }
 
 .textContainer {
@@ -56,18 +56,18 @@
   }
 
   .imageContainer {
-    margin: 0px auto;
-    max-width: 500px;
-    width: 100%;
-    justify-content: none;
+    justify-content: center;
   }
 
   .textContainer {
-    text-align: center;
     justify-content: center;
     width: 100%;
     padding: 0px;
     margin: 0px auto;
+  }
+
+  .textContainer h3 {
+    text-align: center;
   }
 
   .icons {
