@@ -1,21 +1,19 @@
-import { getData } from '../../lib/aboutme'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import utilStyles from './aboutme.module.css'
 import Image from 'next/image'
 import Layout from "../../components/layout"
 import { motion } from 'framer-motion'
-import SocialIcons from '../../components/shared-components/social-icons'
 import ContactForm from '../../components/contact-form'
 import { createClient } from '../../prismic-config'
 import { convertPrismicToAbout } from '../../utils/prismicConversions'
 import { RichText } from 'prismic-reactjs'
+import { AboutPage } from '../../types/aboutPage'
 
-export default function AboutMe({
-  pageData
-}) {
-  console.log(pageData);
-  const { data } = pageData;
+export default function AboutMe(data: AboutPage) {
+
+  const {img, description} = data;
+
   return (
     <div>
       <Head>
@@ -31,7 +29,7 @@ export default function AboutMe({
               transition={{ delay: .4 }}
               className={`${utilStyles.imageContainer}`}
             >
-              <Image width={data.img.width} height={data.img.height} alt={data.img.alt} src={data.img.url} quality={100} />
+              <Image width={800} height={1000} alt={img.alt} src={img.url} quality={100} />
             </motion.div>
             <motion.div
               initial={{ x: 200, opacity: 0 }}
@@ -41,7 +39,7 @@ export default function AboutMe({
             >
               <h3>AbOuT mE</h3>
               <RichText
-                render={data.description}
+                render={description}
               />
             </motion.div>
           </div>
@@ -59,11 +57,11 @@ export default function AboutMe({
 export const getStaticProps: GetStaticProps = async () => {
 
   const client = await createClient();
-  const pageData = await client.getByType('about_page');
+  const pageData = await client.getSingle('about_page');
+
+  const data = convertPrismicToAbout(pageData)
 
   return {
-    props: {
-      pageData: convertPrismicToAbout(pageData)
-    }
+    props: data as AboutPage
   }
 }

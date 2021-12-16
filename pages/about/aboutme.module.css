@@ -27,6 +27,7 @@
 .textContainer h3 {
   font-size: 40px;
   color: #c0f;
+  margin-top: 0px;
 }
 
 .icons {
@@ -56,6 +57,9 @@
   }
 
   .imageContainer {
+    margin: 0px auto;
+    max-width: 500px;
+    width: 100%;
     justify-content: center;
   }
 
@@ -68,6 +72,7 @@
 
   .textContainer h3 {
     text-align: center;
+    margin-top: 40px;
   }
 
   .icons {

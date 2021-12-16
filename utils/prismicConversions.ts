@@ -114,17 +114,17 @@ export function convertPrismicToPost(prismic) {
 
 export function convertPrismicToAbout(prismic) {
 
-  const { data } = prismic.results[0];
-  
-  return {
-    data: {
-      img: {
-        url: data.img.url,
-        alt: data.img.alt,
-        width: data.img.dimensions.width,
-        height: data.img.dimensions.height,
-      },
-      description: data.about_me
-    }
+  const { data } = prismic;
+
+  const aboutPage = {
+    img: {
+      url: data.img.url,
+      alt: data.img.alt,
+      width: data.img.dimensions.width,
+      height: data.img.dimensions.height,
+    },
+    description: data.about_me
   }
+
+  return aboutPage
 }
