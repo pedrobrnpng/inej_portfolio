@@ -27,8 +27,7 @@ export default function Layout({
   return (
     <div className={styles.container}>
       <Head>
-        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
+        <script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=inej"></script>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
