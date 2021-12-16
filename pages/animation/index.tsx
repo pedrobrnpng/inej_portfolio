@@ -1,7 +1,5 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../../components/layout'
-import Navbar from '../../components/navbar'
-import Footer from '../../components/footer'
 import Gallery from '../../components/shared-components/gallery'
 import utilStyles from './animation.module.css'
 import { useEffect, useState } from 'react'
@@ -9,6 +7,9 @@ import getWindowDimensions from '../../utils/windowUtils'
 import { Post } from '../../types/post'
 import { getAllPosts } from '../../lib/projects'
 import { motion } from 'framer-motion'
+import { createClient } from '../../prismic-config'
+import Prismic from '@prismicio/client'
+import { convertPrismicToAnimations } from '../../utils/prismicConversions'
 
 type Props = {
   allPosts: Post[]
@@ -78,21 +79,12 @@ export default function Animation({ allPosts }: Props) {
 
 export async function getStaticProps() {
 
-  const allPosts = await getAllPosts([
-    'project',
-    'title',
-    'img',
-    'type',
-  ])
-
-
-  const posts = await Promise.all(allPosts);
-
-  const finalPosts = posts.filter(post => post.type === 'Animation')
+  const client = await createClient();
+  const data = await client.getAllByType('post')
 
   return {
     props: {
-      allPosts: finalPosts as unknown as Post[]
+      allPosts: convertPrismicToAnimations(data)
     }
   }
 }

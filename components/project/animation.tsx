@@ -4,6 +4,7 @@ import Head from "next/head"
 import React from "react"
 import utilStyles from './animation.module.css'
 import Layout, { siteTitle } from "../layout"
+import { RichText } from "prismic-reactjs"
 
 export default function Animation({ post }) {
 
@@ -16,7 +17,7 @@ export default function Animation({ post }) {
       <div className={`${utilStyles.container}`}>
         <div>
           <Vimeo
-            video={post.videoUrl}
+            video={post.video}
             dnt={true}
             showPortrait={false}
             showTitle={false}
@@ -28,7 +29,9 @@ export default function Animation({ post }) {
           <h2>{post.title}</h2>
           <h5>{post.type} - School Project</h5>
           <div className={`${utilStyles.textDescription}`}>
-            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+            <RichText
+              render={post.description}
+            />
           </div>
           <h4>Credits:</h4>
           <div className={`${utilStyles.credits}`}>

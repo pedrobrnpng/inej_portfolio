@@ -2,9 +2,9 @@ import ErrorPage from 'next/error'
 import { useRouter } from 'next/dist/client/router';
 import Animation from '../../components/project/animation';
 import Drawing from '../../components/project/drawing';
-import { getAllPosts, getPostByName } from '../../lib/projects'
-import markdownToHtml from '../../lib/markdownToHtml'
 import { GetStaticPaths } from 'next';
+import { createClient } from '../../prismic-config';
+import { convertPrismicToPost } from '../../utils/prismicConversions';
 
 const Post = ({ post }) => {
 
@@ -17,9 +17,9 @@ const Post = ({ post }) => {
     <>
       {
         post.type == 'Animation' ?
-          <Animation post={post}/>
+          <Animation post={post} />
           :
-          <Drawing post={post}/>
+          <Drawing post={post} />
       }
     </>
   )
@@ -28,27 +28,14 @@ const Post = ({ post }) => {
 export default Post;
 
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps(context) {
 
-  const post = await getPostByName(params.project, [
-    'title',
-    'img',
-    'content',
-    'project',
-    'sound',
-    'colaborators',
-    'videoUrl',
-    'type'
-  ]);
-
-  const content = await markdownToHtml(post.content || '')
+  const client = await createClient();
+  const post = await client.getByUID('post', context.params.project)
 
   return {
     props: {
-      post: {
-        ...post,
-        content
-      }
+      post: convertPrismicToPost(post)
     }
   }
 }
@@ -57,17 +44,17 @@ export async function getStaticProps({ params }) {
 export const getStaticPaths: GetStaticPaths = async () => {
 
   try {
-    const posts = await getAllPosts(['project']);
-    const post1 = await Promise.all(posts);
-    const paths = post1.map((post) => {
-      return {
-        params: {
-          project: post.project
-        }
-      }
-    })
+    const client = await createClient();
+    var data = await client.getByType('post');
+
     return {
-      paths: paths,
+      paths: data.results.map((doc) => {
+        return {
+          params: {
+            project: doc.uid
+          }
+        }
+      }),
       fallback: false
     }
   } catch (err) {

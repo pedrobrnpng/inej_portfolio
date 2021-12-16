@@ -3,12 +3,12 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import useAnimationOnScroll from '../../hooks/useAnimationOnScroll';
 
-type Props = {
-  onTopRow: any
-  title: string
-  project: string
-  img: string
-}
+// type Props = {
+//   onTopRow: any
+//   title: string
+//   project: string
+//   img: string
+// }
 
 const variants = {
   hide: {
@@ -31,7 +31,7 @@ export default function ProjectCard({
   project,
   img,
   title
-}: Props) {
+}) {
   const scrollThreshold = onTopRow ? 0 : 0.5;
   const [viewRef, animate, setAnimationHasRun] = useAnimationOnScroll('show', scrollThreshold);
   return (
@@ -49,8 +49,8 @@ export default function ProjectCard({
             <div className={`${utilStyles.imageDiv}`}>
               <img
                 className={`${utilStyles.image}`}
-                src={img}
-                alt={title}
+                src={img.url}
+                alt={img.alt}
                 title={title}
               />
             </div>

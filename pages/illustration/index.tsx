@@ -9,6 +9,8 @@ import getWindowDimensions from '../../utils/windowUtils'
 import { Post } from '../../types/post'
 import { getAllPosts } from '../../lib/projects'
 import { motion } from 'framer-motion'
+import { createClient } from '../../prismic-config'
+import { convertPrismicToDrawings } from '../../utils/prismicConversions'
 
 type Props = {
   allPosts: Post[]
@@ -77,20 +79,12 @@ export default function Portfolio({ allPosts }: Props) {
 
 export async function getStaticProps() {
 
-  const allPosts = await getAllPosts([
-    'project',
-    'title',
-    'img',
-    'type',
-  ])
-
-  const posts = await Promise.all(allPosts);
-
-  const finalPosts = posts.filter(post => post.type !== 'Animation')
+  const client = await createClient();
+  const data = await client.getAllByType('post')
 
   return {
     props: {
-      allPosts: finalPosts as unknown as Post[]
+      allPosts: convertPrismicToDrawings(data)
     }
   }
 }

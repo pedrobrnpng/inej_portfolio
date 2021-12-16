@@ -1,7 +1,7 @@
 import utilStyles from './contact-form.module.css'
 import { FaVimeoV, FaInstagram, FaWpforms } from 'react-icons/fa'
 import emailjs from 'emailjs-com'
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 const socials = [
   {
@@ -26,13 +26,23 @@ const socials = [
 
 export default function ContactForm({ showSocials }) {
 
+  const [name, setName] = useState('');
+  const [subject, setSubject] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
   const form = useRef();
   
   const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs.sendForm('service_yvjltlm','template_zquj8lt', form.current, 'user_VtREJCHwKp3BsNwPfimGl')
+  
   }
+  
+  // const handleChange = ((event) => {
+  //   console.log(event.target.value)
+  // })
 
   return (
     <div className={`${utilStyles.contactForm}`}>
@@ -47,6 +57,8 @@ export default function ContactForm({ showSocials }) {
                 name="from_name"
                 data-name="Name"
                 placeholder="Name"
+                value={name}
+                onChange={(event) => console.log(event)}
                 className={`${utilStyles.input}`}
                 id="name"
               />
@@ -56,6 +68,8 @@ export default function ContactForm({ showSocials }) {
                 name="reply_to"
                 data-name="Email"
                 placeholder="Email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
                 className={`${utilStyles.input}`}
                 id="email"
               />
@@ -67,6 +81,8 @@ export default function ContactForm({ showSocials }) {
                 name="subject"
                 data-name="Subject"
                 placeholder="Subject"
+                value={subject}
+                onChange={(event) => setSubject(event.target.value)}
                 className={`${utilStyles.input}`}
                 style={{ width: "100%" }}
                 id="subject"
@@ -78,7 +94,9 @@ export default function ContactForm({ showSocials }) {
                 maxLength={5000}
                 id="Message"
                 name="message"
+                value={message}
                 style={{ width: "100%", height: "100px" }}
+                onChange={(event) => setMessage(event.target.value)}
                 className={`${utilStyles.input}`}
                 data-name="Message"
               />

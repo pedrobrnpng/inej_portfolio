@@ -2,7 +2,6 @@ import utilStyles from './showcase.module.css'
 import { Post } from '../../../types/post'
 import ProjectCard from '../card'
 import Masonry from 'react-masonry-css'
-import { motion } from 'framer-motion'
 
 type Props = {
   allPosts: Post[]
@@ -14,11 +13,7 @@ const breakpoints = {
   700: 1
 }
 
-export default function Gallery({ allPosts }: Props) {
-
-  const filteredPosts = allPosts.filter(post => post.project !== undefined)
-
-  console.log(filteredPosts);
+export default function Gallery({ allPosts }) {
 
   return (
     <Masonry
@@ -26,7 +21,7 @@ export default function Gallery({ allPosts }: Props) {
       className={`${utilStyles.my_masonry_grid}`}
       columnClassName={`${utilStyles.my_masonry_grid_column}`}
     >
-      {filteredPosts.map((post, index) => {
+      {allPosts.map((post, index) => {
         const onTopRow = index < 3;
         return (
           <ProjectCard

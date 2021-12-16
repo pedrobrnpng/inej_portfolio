@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
 import { Post } from '../types/post'
-import { getSelectedPosts } from '../lib/projects'
 import Gallery from '../components/shared-components/gallery'
 import LandingPage from '../components/landingPage'
 import Vimeo from "@u-wave/react-vimeo"
@@ -9,12 +8,14 @@ import utilStyles from '../styles/utils.module.css'
 import ContactForm from '../components/contact-form'
 import React from 'react'
 import IndexContact from '../components/index-contact'
+import { createClient } from '../prismic-config'
+import { convertPrismicToData } from '../utils/prismicConversions'
 
 type Props = {
-  allPosts: Post[]
+  posts: Post[]
 }
 
-export default function Home({ allPosts }: Props) {
+export default function Home({ posts }) {
 
   return (
     <>
@@ -24,7 +25,6 @@ export default function Home({ allPosts }: Props) {
 
       <Layout>
 
-        {/* background */}
         <section>
           <LandingPage />
         </section>
@@ -44,10 +44,6 @@ export default function Home({ allPosts }: Props) {
             `}
           </style>
           <div>
-
-
-
-            {/* SHOWCASE */}
             <div className={`content`}>
               <div className={`centerPage ${utilStyles.showReel}`}>
                 <h1>Showreel</h1>
@@ -67,7 +63,7 @@ export default function Home({ allPosts }: Props) {
               <div className={`centerPage ${utilStyles.worksHeading}`}>
                 <h6>Selected</h6>
                 <h1>Work</h1>
-                <Gallery allPosts={allPosts} />
+                <Gallery allPosts={posts} />
               </div>
 
               <div className={`${utilStyles.contactRow} centerPage`}>
@@ -77,8 +73,6 @@ export default function Home({ allPosts }: Props) {
                 </div>
               </div>
             </div>
-
-            {/* FOOTER */}
 
           </div>
 
@@ -91,18 +85,13 @@ export default function Home({ allPosts }: Props) {
 
 export async function getStaticProps() {
 
-  const allPosts = await getSelectedPosts([
-    'project',
-    'title',
-    'img'
-  ])
-
-
-  const posts = await Promise.all(allPosts);
+  const client = await createClient();
+  var data = await client.getAllByType('post');
 
   return {
     props: {
-      allPosts: posts as unknown as Post[]
+      posts: convertPrismicToData(data)
     }
   }
+
 }
