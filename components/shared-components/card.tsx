@@ -45,6 +45,8 @@ export default function ProjectCard({
                 src={img.url}
                 alt={img.alt}
                 title={title}
+                width={img.width}
+                height={img.height}
               />
             </div>
 
