@@ -49,7 +49,7 @@ export default function LandingPage() {
       </div>
       <div className={`${utilStyles.content} ${utilStyles.videoText}`}>
         <h1 className={`${utilStyles.videoText}`}>INÊS PINHEIRO</h1>
-        <h6 className={`${utilStyles.videoText2}`}>Animation and Illustration</h6>
+        <h2 className={`${utilStyles.videoText2}`}>Animation and Illustration</h2>
       </div>
       <div>
         <a href="#projects" className={`${utilStyles.scrollDown}`}></a>
