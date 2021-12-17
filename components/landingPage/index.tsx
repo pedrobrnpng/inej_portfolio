@@ -40,7 +40,7 @@ export default function LandingPage() {
           :
           <Image
             className={`${utilStyles.test}`}
-            src="/images/background.webm"
+            src="/images/background2.gif"
             alt="Background"
             layout="fill"
             objectFit="cover"
