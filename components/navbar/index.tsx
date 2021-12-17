@@ -65,7 +65,6 @@ export default function Navbar() {
         animate={!isOpen && (width < 1150) ? 'closed' : 'open'}
         variants={variants}
         transition={transition}
-        role="menubar"
         className={`${utilStyles.navbar}`}
       >
         <Cross onClick={closeMenu} />
@@ -77,7 +76,9 @@ export default function Navbar() {
           </Link>
         </div>
         <div className={`${utilStyles.navbarLinkContainer}`}>
-          <ul>
+          <ul
+            role="menubar"
+          >
             {
               navigationLinks.map(({ text, href }) => {
                 return (
