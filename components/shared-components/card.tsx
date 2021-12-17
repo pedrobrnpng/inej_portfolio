@@ -3,13 +3,6 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import useAnimationOnScroll from '../../hooks/useAnimationOnScroll';
 
-// type Props = {
-//   onTopRow: any
-//   title: string
-//   project: string
-//   img: string
-// }
-
 const variants = {
   hide: {
     y: 300,

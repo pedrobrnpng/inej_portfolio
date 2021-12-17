@@ -1,5 +1,4 @@
 import Vimeo from "@u-wave/react-vimeo"
-import { motion } from "framer-motion"
 import Head from "next/head"
 import React from "react"
 import utilStyles from './animation.module.css'

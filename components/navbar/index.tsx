@@ -11,7 +11,6 @@ export default function Navbar() {
 
   const [isOpen, setIsOpen] = useState(false);
   const [width, setWidth] = useState<number>();
-  const [height, setHeight] = useState<number>();
 
   const openMenu = () => setIsOpen(true);
   const closeMenu = () => setIsOpen(false);
@@ -19,14 +18,12 @@ export default function Navbar() {
   useEffect(() => {
     const { width, height } = getWindowDimensions();
     setWidth(width);
-    setHeight(height);
   }, []);
 
   useEffect(() => {
     function handleResize() {
       const { width, height } = getWindowDimensions();
       setWidth(width);
-      setHeight(height);
     }
 
     window.addEventListener("resize", handleResize);
