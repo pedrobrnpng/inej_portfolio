@@ -38,13 +38,15 @@ export default function LandingPage() {
             objectFit="cover"
             quality={100} />
           :
-          <Image
-            className={`${utilStyles.test}`}
-            src="/images/background2.avif"
-            alt="Background"
-            layout="fill"
-            objectFit="cover"
-            quality={100} />
+          <video
+            className={`${utilStyles.video}`}
+            autoPlay
+            muted
+            loop
+            id='background'
+          >
+            <source src="/images/background.webm" type="video/webm" />
+          </video>
         }
       </div>
       <div className={`${utilStyles.content} ${utilStyles.videoText}`}>
