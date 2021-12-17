@@ -36,8 +36,13 @@ export default function ContactForm({ showSocials }) {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_yvjltlm','template_zquj8lt', form.current, 'user_VtREJCHwKp3BsNwPfimGl')
-  
+    const email = emailjs.sendForm('service_yvjltlm','template_zquj8lt', form.current, 'user_VtREJCHwKp3BsNwPfimGl')
+    if(email){
+      setName('')
+      setSubject('')
+      setEmail('')
+      setMessage('')
+    }
   }
   
   // const handleChange = ((event) => {
@@ -58,7 +63,7 @@ export default function ContactForm({ showSocials }) {
                 data-name="Name"
                 placeholder="Name"
                 value={name}
-                onChange={(event) => console.log(event)}
+                onChange={(event) => setName(event.target.value)}
                 className={`${utilStyles.input}`}
                 id="name"
               />
