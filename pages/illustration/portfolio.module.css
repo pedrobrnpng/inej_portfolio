@@ -1,7 +1,7 @@
 .text {
   display: flex;
   align-items: center;
-  padding-left: 20px;
+  padding-left: 0px;
 }
 
 .text h5 {
@@ -18,5 +18,11 @@
 @media only screen and (max-width: 1150px) {
   .content {
     padding-top: 0;
+  }
+
+  .text {
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
   }
 }

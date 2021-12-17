@@ -3,9 +3,8 @@ export function convertPrismicToAnimations(prismic) {
   const collections = [];
 
   if (prismic) {
-    const filtered = prismic.filter((post => post.data.post_type === 'Animation'))
 
-    filtered.map((collection) => {
+    prismic.map((collection) => {
       collections.push({
         project: collection.uid,
         title: collection.data.title,
@@ -30,9 +29,8 @@ export function convertPrismicToDrawings(prismic) {
   const collections = [];
 
   if (prismic) {
-    const filtered = prismic.filter((post => post.data.post_type !== 'Animation'))
 
-    filtered.map((collection) => {
+    prismic.map((collection) => {
       collections.push({
         project: collection.uid,
         title: collection.data.title,
@@ -70,7 +68,6 @@ export function convertPrismicToData(prismic) {
           height: post.data.image.dimensions.height,
         },
         video: post.data.video.url || '',
-        selected: post.data.selected,
         description: post.data.post_description
       })
     })
@@ -85,9 +82,9 @@ export function convertPrismicToPost(prismic) {
 
   const { data } = prismic;
 
-  var colaborators = [];
+  var colaborators = [''];
   colaborators = data.colaborators.map((colaborator) => colaborator.colaborator_name)
-  var sound = [];
+  var sound = [''];
   sound = data.sound.map((sound) => sound.sound_colaborator)
 
 
@@ -103,7 +100,6 @@ export function convertPrismicToPost(prismic) {
       height: data.image.dimensions.height,
     },
     video: data.video.url || '',
-    selected: data.selected,
     description: data.post_description,
     colaborators,
     sound

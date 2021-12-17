@@ -6,7 +6,7 @@ import { Post } from '../../types/post'
 import { motion } from 'framer-motion'
 import { createClient } from '../../prismic-config'
 import { convertPrismicToDrawings } from '../../utils/prismicConversions'
-import Prismic from '@prismicio/client'
+import * as prismic from '@prismicio/client'
 
 type Props = {
   allPosts: Post[]
@@ -56,7 +56,17 @@ export default function Portfolio({ allPosts }: Props) {
 export async function getStaticProps() {
 
   const client = await createClient();
-  const data = await client.getAllByType('post')
+  const data = await client.getAllByType(
+    'post',
+    {
+      predicates: [
+        prismic.predicate.any('my.post.post_type', ['Illustration', 'Observational Drawing'])
+      ],
+      orderings: {
+        field: 'my.post.drawing_order'
+      }
+    }
+  )
 
   return {
     props: {

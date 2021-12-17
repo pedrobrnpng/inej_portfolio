@@ -26,7 +26,7 @@ export default function Animation({ post }) {
         </div>
         <div className={`${utilStyles.description}`}>
           <h2>{post.title}</h2>
-          <h5>{post.type} - School Project</h5>
+          <h5>{post.type}</h5>
           <div className={`${utilStyles.textDescription}`}>
             <RichText
               render={post.description}

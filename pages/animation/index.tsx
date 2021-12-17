@@ -6,6 +6,7 @@ import { Post } from '../../types/post'
 import { motion } from 'framer-motion'
 import { createClient } from '../../prismic-config'
 import { convertPrismicToAnimations } from '../../utils/prismicConversions'
+import * as prismic from '@prismicio/client'
 
 type Props = {
   allPosts: Post[]
@@ -15,7 +16,7 @@ export default function Animation({ allPosts }: Props) {
 
   var uniqueTypes = allPosts.map((post) => post.type.trim())
     .filter((value, index, self) => self.indexOf(value) === index)
-  
+
   return (
     <Layout home>
       <Head>
@@ -25,7 +26,7 @@ export default function Animation({ allPosts }: Props) {
       <div className={`${utilStyles.content}`}>
 
         <section className="centerPage">
-          
+
           {uniqueTypes.map(type => {
             return (
               <section>
@@ -35,7 +36,7 @@ export default function Animation({ allPosts }: Props) {
                   transition={{ delay: .4 }}
                   className={`${utilStyles.text}`}
                 >
-                  <h5>{type}</h5>
+                  <h5>{type === 'Film' ? 'Films' : type}</h5>
                 </motion.div>
                 <Gallery
                   allPosts={allPosts.filter(post => post.type === type)}
@@ -56,7 +57,14 @@ export default function Animation({ allPosts }: Props) {
 export async function getStaticProps() {
 
   const client = await createClient();
-  const data = await client.getAllByType('post')
+  const data = await client.getAllByType('post', {
+    predicates: [
+      prismic.predicate.any('my.post.post_type', ['Other Projects', 'Film'])
+    ],
+    orderings: {
+      field: 'my.post.animation_order'
+    }
+  })
 
   return {
     props: {

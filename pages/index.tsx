@@ -10,6 +10,7 @@ import React from 'react'
 import IndexContact from '../components/index-contact'
 import { createClient } from '../prismic-config'
 import { convertPrismicToData } from '../utils/prismicConversions'
+import * as prismic from '@prismicio/client'
 
 type Props = {
   posts: Post[]
@@ -86,7 +87,14 @@ export default function Home({ posts }) {
 export async function getStaticProps() {
 
   const client = await createClient();
-  var data = await client.getAllByType('post');
+  var data = await client.getAllByType('post', {
+    predicates: [
+      prismic.predicate.at('my.post.selected1', 'True')
+    ],
+    orderings: {
+      field: 'my.post.frontpage_order'
+    }
+  });
 
   return {
     props: {

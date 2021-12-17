@@ -110,12 +110,15 @@
   }
 
   .videoText {
-    color: #FFF;
+    color: #fff;
+    mix-blend-mode: difference;
   }
   
   .videoText2 {
-    color: #FFF;
+    color: #fff;
+    mix-blend-mode: difference;
   }
+
 }
 
 .ParallaxVideo video{ 
