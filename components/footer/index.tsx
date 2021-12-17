@@ -10,7 +10,7 @@ export default function Footer() {
         <SocialIcons/>
       </div>
       <div className={`${utilStyles.footerCopyright}`}>
-        <h5>© Pedro Brandão - 2021</h5>
+        <h5>© Pedro Brandão</h5>
       </div>
     </div>
   )
