@@ -40,7 +40,7 @@ export default function LandingPage() {
           :
           <Image
             className={`${utilStyles.test}`}
-            src="/images/background2.gif"
+            src="/images/background2.avif"
             alt="Background"
             layout="fill"
             objectFit="cover"
