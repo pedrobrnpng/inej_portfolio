@@ -16,13 +16,13 @@ export default function Navbar() {
   const closeMenu = () => setIsOpen(false);
 
   useEffect(() => {
-    const { width, height } = getWindowDimensions();
+    const { width } = getWindowDimensions();
     setWidth(width);
   }, []);
 
   useEffect(() => {
     function handleResize() {
-      const { width, height } = getWindowDimensions();
+      const { width } = getWindowDimensions();
       setWidth(width);
     }
 
@@ -69,7 +69,9 @@ export default function Navbar() {
         className={`${utilStyles.navbar}`}
       >
         <Cross onClick={closeMenu} />
-        <div className={`${utilStyles.navbarLogo}`}>
+        <div
+          role="menuitem"
+          className={`${utilStyles.navbarLogo}`}>
           <Link href="/">
             <h3 onClick={closeMenu}>INÊS PINHEIRO</h3>
           </Link>
@@ -79,7 +81,10 @@ export default function Navbar() {
             {
               navigationLinks.map(({ text, href }) => {
                 return (
-                  <li onClick={closeMenu}>
+                  <li
+                    role="menuitem"
+                    onClick={closeMenu}
+                  >
                     <Link href={href}>
                       {text}
                     </Link>

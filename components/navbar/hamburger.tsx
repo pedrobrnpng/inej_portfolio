@@ -13,6 +13,7 @@ export default function Hamburger({ onClick }) {
 
   return (
     <div
+      aria-label='Menu Button'
       onClick={onClick}
       role="button"
       tabIndex={0}
