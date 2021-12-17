@@ -27,42 +27,33 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <div className={`${utilStyles.test}`} style={{height: height}}>
-          <div className={`${utilStyles.ParallaxVideo}`}>
-            {width <= 1150 ?
-              <Image
-                className={`${utilStyles.test}`}
-                alt="Background"
-                src="/images/background_.jpg"
-                layout="fill"
-                objectFit="cover"
-                quality={100} />
-              :
-              <Image
-                className={`${utilStyles.test}`}
-                src="/images/background2.gif"
-                alt="Background"
-                layout="fill"
-                objectFit="cover"
-                quality={100} />
-              // <video
-              //   className={`${utilStyles.video}`}
-              //   autoPlay
-              //   muted
-              //   loop
-              //   id='background'
-              // >
-              //   <source src="/videos/background.mp4" type="video/mp4" />
-              // </video>
-            }
-          </div>
-          <div className={`${utilStyles.content} ${utilStyles.videoText}`}>
-            <h1 className={`${utilStyles.videoText}`}>INÊS PINHEIRO</h1>
-            <h6 className={`${utilStyles.videoText2}`}>Animation and Illustration</h6>
-          </div>
-          <div>
-            <a href="#projects" className={`${utilStyles.scrollDown}`}></a>
-          </div>
-        </div>
+    <div className={`${utilStyles.test}`} style={{ height: height }}>
+      <div className={`${utilStyles.ParallaxVideo}`}>
+        {width <= 1150 ?
+          <Image
+            className={`${utilStyles.test}`}
+            alt="Background"
+            src="/images/background_.jpg"
+            layout="fill"
+            objectFit="cover"
+            quality={100} />
+          :
+          <Image
+            className={`${utilStyles.test}`}
+            src="/images/background.webm"
+            alt="Background"
+            layout="fill"
+            objectFit="cover"
+            quality={100} />
+        }
+      </div>
+      <div className={`${utilStyles.content} ${utilStyles.videoText}`}>
+        <h1 className={`${utilStyles.videoText}`}>INÊS PINHEIRO</h1>
+        <h6 className={`${utilStyles.videoText2}`}>Animation and Illustration</h6>
+      </div>
+      <div>
+        <a href="#projects" className={`${utilStyles.scrollDown}`}></a>
+      </div>
+    </div>
   )
 }
