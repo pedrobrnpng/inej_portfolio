@@ -27,7 +27,6 @@ export default function Layout({
   return (
     <div className={styles.container}>
       <Head>
-        <script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=inej"></script>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
