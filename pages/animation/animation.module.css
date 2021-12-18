@@ -19,10 +19,11 @@
 
   .content {
     padding-top: 0;
-    padding-left: 15px;
   }
 
   .text {
+    display: flex;
+    align-items: center;
     padding-left: 15px;
   }
 }

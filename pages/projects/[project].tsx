@@ -16,7 +16,7 @@ const Post = ({ post }) => {
   return (
     <>
       {
-        post.type === 'Film' && post.type === 'Other Projects' ?
+        post.type === 'Film' || post.type === 'Other Projects' ?
           <Animation post={post} />
           :
           <Drawing post={post} />
